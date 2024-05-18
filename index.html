@@ -18,7 +18,7 @@
         .container {
             width: 400px;
             height: 320px;
-            background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241477851920990358/MOSHED-2024-5-18-15-49-111.jpg?ex=664a57d9&is=66490659&hm=b193189d1b630658bcda23dcdb2662b9b98dc946b5f75d63568df1cc4e86d731&');
+            background-image: url('https://www.kaixvny.com/images/winxp.jpg');
             background-size: cover;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             display: flex;
@@ -32,19 +32,48 @@
             width: 40px;
             height: 40px;
             margin: 10px;
-            background-image: url('https://via.placeholder.com/70');
             background-size: cover;
             cursor: pointer;
         }
-         .icon2 {
+        .icon1 {
+            background-image: url('https://www.kaixvny.com/images/computer.png');
+        }
+        .icon2 {
+            background-image: url('https://www.kaixvny.com/images/folder.png');
+        }
+        .icon3 {
+            background-image: url('https://www.kaixvny.com/images/msn.png');
+        }
+        .icon4 {
+            background-image: url('https://www.kaixvny.com/images/music.png');
+        }
+        .icon5 {
+            background-image: url('https://www.kaixvny.com/images/www.png');
+        }
+        .icon6 {
+            background-image: url('https://www.kaixvny.com/images/trash.png');
+        }
+        
+        .iconrow2 {
             width: 40px;
             height: 40px;
             margin: 10px;
-            background-image: url('https://via.placeholder.com/70');
             background-size: cover;
             cursor: pointer;
-
-    transform: translateY(-80px);
+            transform: translateY(-80px);
+        }
+        
+        .iconsecret {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            background-size: cover;
+            cursor: pointer;
+            transform: translate(300px, 60px);
+        }
+        
+        .iconsecret {
+            background-image: url('https://www.kaixvny.com/images/lock.png');
         }
 
         .icon:hover {
@@ -57,41 +86,38 @@
             left: 0;
             width: 100%;
             height: 25px;
-            background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241482457962778734/taskbar.png?ex=664a5c23&is=66490aa3&hm=da322b18ea4b8a616193623671dfab240356a692219f942cca24494a9129ba85&');
+            background-image: url('https://www.kaixvny.com/images/taskbar.png');
             display: flex;
             align-items: center;
             padding: 0 10px;
             box-sizing: border-box;
         }
 
-	.start-button {
-	    width: 100px;
-	    height: 100%;
-	    background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241483557461819454/start.png?ex=664a5d29&is=66490ba9&hm=475e30bfbe0eceec177f64703a9b845d34a4cf2a673509e74dd4f479eab981b8&'); 
-  	  background-size: cover;
-  	  cursor: pointer;
-  	  transition: background-image 0.3s;
-  	  position: absolute;
-  	  left: 0;
-	}
+        .start-button {
+            width: 100px;
+            height: 100%;
+            background-image: url('https://www.kaixvny.com/images/start.png'); 
+            background-size: cover;
+            cursor: pointer;
+            transition: background-image 0.3s;
+            position: absolute;
+            left: 0;
+        }
 
         .start-button:hover {
-            background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241483557134930000/starthover.png?ex=664a5d29&is=66490ba9&hm=9df1149f9dc4666dbc714f40452813e8d2b259d3cbe91703f7caddf8d52753be&');
+            background-image: url('https://www.kaixvny.com/images/starthover.png');
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="icon" onclick="alert('Icon 1 clicked!')"></div>
-        <div class="icon" onclick="alert('Icon 2 clicked!')"></div>
-        <div class="icon" onclick="alert('Icon 3 clicked!')"></div>
-        <div class="icon" onclick="alert('Icon 4 clicked!')"></div>
-        <div class="icon" onclick="alert('Icon 5 clicked!')"></div>
-        <div class="icon" onclick="alert('Icon 6 clicked!')"></div>
-        <div class="icon2" onclick="alert('icon 2 boo')"></div>
-        <div class="icon2" onclick="alert('icon2 boo')"></div>
-        <div class="icon2" onclick="alert('icon2 boo')"></div>
-
+    <div class="container" id="container">
+        <div class="icon icon1" onclick="alert('about me')"></div>
+        <div class="icon icon2" onclick="alert('projects')"></div>
+        <div class="icon icon3" onclick="alert('social')"></div>
+        <div class="icon icon4" onclick="alert('music')"></div>
+        <div class="icon icon5" onclick="alert('other sites')"></div>
+        <div class="icon icon6" onclick="alert('trash projcets')"></div>
+        <div class="iconsecret iconsecret" onclick="handleIconSecretClick()"></div>
 
         <div class="taskbar">
             <div class="start-button" id="start-button"></div>
@@ -99,8 +125,55 @@
     </div>
 
     <script>
+        const container = document.getElementById('container');
+        const initialBackgroundImage = container.style.backgroundImage;
+        
+                function changeContainerImage() {
+            var container = document.getElementById('container');
+            container.style.backgroundImage = "url('https://www.kaixvny.com/images/home.jpg')";
+        }
+
+function handleIconSecretClick() {
+    changeContainerImage();
+    setTimeout(checkPassword, 1);
+}
+
+
+        async function checkPassword() {
+            const password = prompt('Enter password:');
+            const hashedPassword = await hashPassword(password);
+            const correctHash = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08'; // precomputed hash for 'test'
+
+            if (hashedPassword === correctHash) {
+                alert('woohoo');
+            } else {
+                alert('denied.');
+                container.style.backgroundImage = initialBackgroundImage;
+            }
+        }
+
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            return bufferToHex(hashBuffer);
+        }
+
+        function bufferToHex(buffer) {
+            const hexCodes = [];
+            const view = new DataView(buffer);
+            for (let i = 0; i < view.byteLength; i += 4) {
+                const value = view.getUint32(i);
+                const stringValue = value.toString(16);
+                const padding = '00000000';
+                const paddedValue = (padding + stringValue).slice(-padding.length);
+                hexCodes.push(paddedValue);
+            }
+            return hexCodes.join('');
+        }
+
         document.getElementById('start-button').addEventListener('click', function() {
-            this.style.backgroundImage = 'url("https://cdn.discordapp.com/attachments/950412783852335204/1241483556803313674/startclick.png?ex=664a5d29&is=66490ba9&hm=06acabdeb7e757d0ebecdcdb45e7d8bc84df8ce69b1113650762605554d80116&")';
+            this.style.backgroundImage = 'url("https://www.kaixvny.com/images/startclick.png")';
         });
     </script>
 </body>
