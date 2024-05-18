@@ -1,9 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome...</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            height: 320px;
+            background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241477851920990358/MOSHED-2024-5-18-15-49-111.jpg?ex=664a57d9&is=66490659&hm=b193189d1b630658bcda23dcdb2662b9b98dc946b5f75d63568df1cc4e86d731&');
+            background-size: cover;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            background-image: url('https://via.placeholder.com/70');
+            background-size: cover;
+            cursor: pointer;
+        }
+         .icon2 {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            background-image: url('https://via.placeholder.com/70');
+            background-size: cover;
+            cursor: pointer;
+
+    transform: translateY(-80px);
+        }
+
+        .icon:hover {
+            transform: scale(1.05);
+        }
+
+        .taskbar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241482457962778734/taskbar.png?ex=664a5c23&is=66490aa3&hm=da322b18ea4b8a616193623671dfab240356a692219f942cca24494a9129ba85&');
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+	.start-button {
+	    width: 100px;
+	    height: 100%;
+	    background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241483557461819454/start.png?ex=664a5d29&is=66490ba9&hm=475e30bfbe0eceec177f64703a9b845d34a4cf2a673509e74dd4f479eab981b8&'); 
+  	  background-size: cover;
+  	  cursor: pointer;
+  	  transition: background-image 0.3s;
+  	  position: absolute;
+  	  left: 0;
+	}
+
+        .start-button:hover {
+            background-image: url('https://cdn.discordapp.com/attachments/950412783852335204/1241483557134930000/starthover.png?ex=664a5d29&is=66490ba9&hm=9df1149f9dc4666dbc714f40452813e8d2b259d3cbe91703f7caddf8d52753be&');
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <div class="icon" onclick="alert('Icon 1 clicked!')"></div>
+        <div class="icon" onclick="alert('Icon 2 clicked!')"></div>
+        <div class="icon" onclick="alert('Icon 3 clicked!')"></div>
+        <div class="icon" onclick="alert('Icon 4 clicked!')"></div>
+        <div class="icon" onclick="alert('Icon 5 clicked!')"></div>
+        <div class="icon" onclick="alert('Icon 6 clicked!')"></div>
+        <div class="icon2" onclick="alert('icon 2 boo')"></div>
+        <div class="icon2" onclick="alert('icon2 boo')"></div>
+        <div class="icon2" onclick="alert('icon2 boo')"></div>
 
-<h1>kaixvny.com</h1>
-<p>setting up soon</p>
 
+        <div class="taskbar">
+            <div class="start-button" id="start-button"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', function() {
+            this.style.backgroundImage = 'url("https://cdn.discordapp.com/attachments/950412783852335204/1241483556803313674/startclick.png?ex=664a5d29&is=66490ba9&hm=06acabdeb7e757d0ebecdcdb45e7d8bc84df8ce69b1113650762605554d80116&")';
+        });
+    </script>
 </body>
 </html>
