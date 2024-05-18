@@ -196,7 +196,7 @@
             <div class="icon-text">Other Sites</div>
         </div>
 
-        <div class="iconrow2-container" onclick="alert('trash projects')">
+        <div class="iconrow2-container" onclick="openRandomLink()">
             <div class="iconrow2 iconrow21"></div>
             <div class="icon-text">Trash</div>
         </div>
@@ -214,6 +214,24 @@
         const container = document.getElementById('container');
         const initialBackgroundImage = container.style.backgroundImage;
         
+                function openRandomLink() {
+            var links = [
+                "https://www.kaixvny.com/trash/amelia.mp3",
+                "https://www.kaixvny.com/trash/average kaixvny song.mp3",
+                "https://www.kaixvny.com/trash/FOX SZN ILY.mp3",
+                "https://www.kaixvny.com/trash/gave bro a perc and told him it was a smartie.mp3",
+                "hhttps://www.kaixvny.com/trash/in a far away universe.mp3",
+                "https://www.kaixvny.com/trash/simon cowel.mp3",
+                "https://www.kaixvny.com/trash/VITAL.mp3",
+                "https://www.kaixvny.com/trash/VOCALS MISSING.mp3",
+                "https://www.kaixvny.com/trash/whatsapp.html",
+            ];
+
+            var randomIndex = Math.floor(Math.random() * links.length);
+
+            window.location.href = links[randomIndex];
+            }
+        
         function changeContainerImage() {
             var container = document.getElementById('container');
             container.style.backgroundImage = "url('https://www.kaixvny.com/images/home.jpg')";
@@ -227,7 +245,7 @@
         async function checkPassword() {
             const password = prompt('Enter password:');
             const hashedPassword = await hashPassword(password);
-            const correctHash = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
+            const correctHash = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08'; // precomputed hash for 'test'
 
             if (hashedPassword === correctHash) {
                 alert('woohoo');
