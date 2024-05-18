@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>welcome...</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000000;
-            font-family: Arial, sans-serif;
-        }
+    
+ 	@font-face {
+ 	   font-family: 'CustomFont';
+ 	   src: url('https://www.kaixvny.com/fonts/winxp.ttf') format('truetype');
+	}
+
+	body, html {
+   	 height: 100%;
+   	 margin: 0;
+   	 display: flex;
+   	 justify-content: center;
+   	 align-items: center;
+   	 background-color: #000000;
+   	 font-family: 'CustomFont', Arial, sans-serif;
+	}
 
         .container {
             width: 400px;
@@ -28,13 +34,26 @@
             position: relative;
         }
 
+        .icon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 14px;
+            cursor: pointer;
+        }
+
         .icon {
             width: 40px;
             height: 40px;
-            margin: 10px;
             background-size: cover;
-            cursor: pointer;
         }
+
+        .icon-text {
+            color: white;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
         .icon1 {
             background-image: url('https://www.kaixvny.com/images/computer.png');
         }
@@ -50,35 +69,80 @@
         .icon5 {
             background-image: url('https://www.kaixvny.com/images/www.png');
         }
-        .icon6 {
-            background-image: url('https://www.kaixvny.com/images/trash.png');
-        }
-        
-        .iconrow2 {
-            width: 40px;
-            height: 40px;
-            margin: 10px;
-            background-size: cover;
-            cursor: pointer;
-            transform: translateY(-80px);
-        }
-        
-        .iconsecret {
-            width: 40px;
-            height: 40px;
-            margin: 10px;
-            background-size: cover;
-            cursor: pointer;
-            transform: translate(300px, 60px);
-        }
-        
-        .iconsecret {
-            background-image: url('https://www.kaixvny.com/images/lock.png');
-        }
 
         .icon:hover {
             transform: scale(1.05);
         }
+        
+        
+        .iconrow2-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            cursor: pointer;
+            transform: translate(8px, -70px);
+        }
+
+        .iconrow2 {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            
+
+        }
+
+        .iconrow2-text {
+            color: white;
+            font-size: 18px;
+            margin-top: 5px;
+            
+        }
+
+        .iconrow21 {
+            background-image: url('https://www.kaixvny.com/images/trash.png');
+        }
+        
+        
+        .iconsecret-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            cursor: pointer;
+            transform: translate(240px, 40px);
+        }
+
+        .iconsecret {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            
+
+        }
+
+        .iconsecret-text {
+            color: white;
+            font-size: 18px;
+            margin-top: 5px;
+            
+        }
+
+        .iconsecret {
+            background-image: url('https://www.kaixvny.com/images/lock.png');
+        }
+        
+
+        .icon:hover {
+            transform: scale(1.05);
+        }
+        .iconrow2:hover {
+            transform: scale(1.05);
+        }
+        .iconsecret:hover {
+            transform: scale(1.05);
+        }
+
 
         .taskbar {
             position: absolute;
@@ -111,13 +175,35 @@
 </head>
 <body>
     <div class="container" id="container">
-        <div class="icon icon1" onclick="alert('about me')"></div>
-        <div class="icon icon2" onclick="alert('projects')"></div>
-        <div class="icon icon3" onclick="alert('social')"></div>
-        <div class="icon icon4" onclick="alert('music')"></div>
-        <div class="icon icon5" onclick="alert('other sites')"></div>
-        <div class="icon icon6" onclick="alert('trash projcets')"></div>
-        <div class="iconsecret iconsecret" onclick="handleIconSecretClick()"></div>
+        <div class="icon-container" onclick="alert('about me')">
+            <div class="icon icon1"></div>
+            <div class="icon-text">About Me</div>
+        </div>
+        <div class="icon-container" onclick="alert('projects')">
+            <div class="icon icon2"></div>
+            <div class="icon-text">Projects</div>
+        </div>
+        <div class="icon-container" onclick="alert('social')">
+            <div class="icon icon3"></div>
+            <div class="icon-text">Social</div>
+        </div>
+        <div class="icon-container" onclick="alert('music')">
+            <div class="icon icon4"></div>
+            <div class="icon-text">Music</div>
+        </div>
+        <div class="icon-container" onclick="alert('other sites')">
+            <div class="icon icon5"></div>
+            <div class="icon-text">Other Sites</div>
+        </div>
+
+        <div class="iconrow2-container" onclick="alert('trash projects')">
+            <div class="iconrow2 iconrow21"></div>
+            <div class="icon-text">Trash</div>
+        </div>
+        <div class="iconsecret-container" onclick="handleIconSecretClick()">
+            <div class="iconsecret iconsecret"></div>
+            <div class="iconsecret-text">Secret</div>
+        </div>
 
         <div class="taskbar">
             <div class="start-button" id="start-button"></div>
@@ -128,16 +214,15 @@
         const container = document.getElementById('container');
         const initialBackgroundImage = container.style.backgroundImage;
         
-                function changeContainerImage() {
+        function changeContainerImage() {
             var container = document.getElementById('container');
             container.style.backgroundImage = "url('https://www.kaixvny.com/images/home.jpg')";
         }
 
-function handleIconSecretClick() {
-    changeContainerImage();
-    setTimeout(checkPassword, 1);
-}
-
+        function handleIconSecretClick() {
+            changeContainerImage();
+            setTimeout(checkPassword, 1);
+        }
 
         async function checkPassword() {
             const password = prompt('Enter password:');
