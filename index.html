@@ -194,7 +194,7 @@
             <div class="icon icon3"></div>
             <div class="icon-text">Social</div>
         </div>
-        <div class="icon-container" onclick="playClickSound()">
+        <div class="icon-container" onclick="playSelectSound()">
             <div class="icon icon4"></div>
             <div class="icon-text">Music</div>
         </div>
@@ -219,16 +219,28 @@
 
     <audio id="clickSound" src="https://www.kaixvny.com/sounds/mouseclick.mp3"></audio>
     <audio id="selectSound" src="https://www.kaixvny.com/sounds/mouseselect.mp3"></audio>
+    
+    <audio autoplay loop>
+ 	 <source src="https://www.kaixvny.com/sounds/whitenoise.mp3" type="audio/mpeg">
+ 	 Your browser does not support the audio element.
+	</audio>
 
     <script>
         const container = document.getElementById('container');
         const initialBackgroundImage = container.style.backgroundImage;
         
     
-    document.addEventListener("click", function() {
-  var clickSound = document.getElementById("clickSound");
-  clickSound.play();
-});
+    document.addEventListener("click", function(event) {
+        if (!event.target.classList.contains('icon') && !event.target.classList.contains('iconrow2') && !event.target.classList.contains('iconsecret')) {
+            var clickSound = document.getElementById("clickSound");
+            clickSound.play();
+        }
+    });
+
+function playSelectSound() {
+    const selectSound = document.getElementById('selectSound');
+    selectSound.play();
+}
         
                 function openRandomLink() {
             var links = [
