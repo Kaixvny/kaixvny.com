@@ -185,7 +185,7 @@
 </head>
 <body>
     <div class="container" id="container">
-        <div class="icon-container" onclick="alert('about me')">
+        <div class="icon-container" onclick="playSelectSound(); openPopupAboutMe()">
             <div class="icon icon1"></div>
             <div class="icon-text">About Me</div>
         </div>
@@ -201,7 +201,7 @@
             <div class="icon icon4"></div>
             <div class="icon-text">Music</div>
         </div>
-        <div class="icon-container" onclick="openPopup()">
+        <div class="icon-container" onclick="playSelectSound()">
             <div class="icon icon5"></div>
             <div class="icon-text">Other Sites</div>
         </div>
@@ -254,10 +254,10 @@ function playSelectSound() {
   var backgroundMusic = document.getElementById("background-music");
   backgroundMusic.volume = 0.1;
   
-  function openPopup() {
-    var popupURL = 'https://example.com'; 
-    var popupName = 'PopupWindow';
-    var popupFeatures = 'width=600,height=400,scrollbars=yes';
+  function openPopupAboutMe() {
+    var popupURL = 'https://www.kaixvny.com/aboutme'; 
+    var popupName = 'About Me!!!';
+    var popupFeatures = 'width=550,height=600,scrollbars=no';
 
     var popupWindow = window.open(popupURL, popupName, popupFeatures);
 }

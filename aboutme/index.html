@@ -98,6 +98,26 @@
         .spin {
             animation: spin 2.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
+        
+
+        
+        .close-container {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+        z-index: 9; 
+}
+
+.close-container img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -114,6 +134,8 @@
     <div class="clickable-layer" onclick="showME()">
         <img src="https://www.kaixvny.com/aboutme/khai.jpg" alt="khai">
     </div>
+    <div class="close-container" onclick="closeWindow()">
+</div>
     
     <audio id="sound1" src="https://www.kaixvny.com/sounds/sillysound1.mp3"></audio>
     <audio id="sound2" src="https://www.kaixvny.com/sounds/sillysound2.mp3"></audio>
@@ -127,6 +149,9 @@
             var randomIndex = Math.floor(Math.random() * images.length);
             document.getElementById("randomLayer").innerHTML = "<img src='" + images[randomIndex] + "' alt='Layer 3'>";
         }
+            function closeWindow() {
+        window.close();
+    }
 
         function showME() {
             var img = document.querySelector('.clickable-layer img');
@@ -139,7 +164,7 @@
             
             setTimeout(() => {
                 img.classList.remove('spin');
-            }, 2000); 
+            }, 2000);  
         }
         
 
