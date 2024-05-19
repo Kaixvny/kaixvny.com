@@ -221,7 +221,7 @@
     <audio id="selectSound" src="https://www.kaixvny.com/sounds/mouseselect.mp3"></audio>
     
     <audio autoplay loop>
- 	 <source src="https://www.kaixvny.com/sounds/whitenoise2.mp3" type="audio/mpeg">
+ 	 <source src="https://www.kaixvny.com/sounds/whitenoise.mp3" type="audio/mpeg">
  	 Your browser does not support the audio element.
 	</audio>
 
@@ -232,7 +232,7 @@
     
     document.addEventListener("click", function(event) {
         if (!event.target.classList.contains('icon') && !event.target.classList.contains('iconrow2') && !event.target.classList.contains('iconsecret')) {
-            var clickSound = document.getElementById("clickSound2");
+            var clickSound = document.getElementById("clickSound");
             clickSound.play();
         }
     });
