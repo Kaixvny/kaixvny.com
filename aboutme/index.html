@@ -15,11 +15,19 @@
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
-            max-width: 550px;
-            max-height: 600px;
-            overflow: hidden;
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             font-family: 'determination', Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 550px;
+            height: 600px;
+            background-color: white;
+            overflow: hidden;
         }
 
         .layer {
@@ -57,9 +65,10 @@
         .text-layer {
             position: absolute;
             z-index: 7;
-            top: 10%;
-            left: 50%;
-            transform: translate(-255px, 30px);
+            top: 4%;
+            left: 28%;
+            transform: translate(-50%, 0);
+            width: 270px;
             text-align: left;
             color: #390d59;
         }
@@ -77,9 +86,9 @@
         .clickable-layer {
             position: absolute;
             z-index: 8; 
-            top: 50%;
-            left: 50%;
-            transform: translate(75px, 75px);
+            top: 25%;
+            left: 75%;
+            transform: translate(-50%, -50%);
             cursor: pointer;
         }
 
@@ -98,60 +107,57 @@
         .spin {
             animation: spin 2.7s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        
 
-        
         .close-container {
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    width: 25px;
-    height: 20px;
-    cursor: pointer;
-        z-index: 9; 
-}
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 25px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 9; 
+        }
 
-.close-container img {
-    width: 100%;
-    height: 100%;
-}
-
-
+        .close-container img {
+            width: 100%;
+            height: 100%;
+        }
 
     </style>
 </head>
 <body>
-    <div class="layer"><img src="https://www.kaixvny.com/aboutme/XPBorder.png" alt="Layer 1"></div>
-    <div class="layer"><img src="" alt="Layer 2"></div>
-    <div class="layer" id="randomLayer"><img src="" alt="Layer 3"></div>
-    <div class="layer"><img src="https://www.kaixvny.com/aboutme/Background.png" alt="Layer 6"></div>
+    <div class="container">
+        <div class="layer"><img src="https://www.kaixvny.com/aboutme/XPBorder.png" alt="Layer 1"></div>
+        <div class="layer"><img src="" alt="Layer 2"></div>
+        <div class="layer" id="randomLayer"><img src="" alt="Layer 3"></div>
+        <div class="layer"><img src="https://www.kaixvny.com/aboutme/Background.png" alt="Layer 6"></div>
 
-    <div class="text-layer">
-        <h1>about me</h1>
-        <p>hello!!! im kaixvny!! (you can also call me khai or kai!)<br><br>im a game developer, programmer, and a musician/composer!!!<br><br>ive directed and coded projects such as FNF: The Golden ONE and a few more!<br><br>im genderfluid (he/she) and bisexual! i have several intrests/fixations like hfjONE, Portal/Half-Life, I Love Amy, Undertale/Deltarune and many more!<br><br>i spend most of my time either working on a project or making music! you can find both of those things on the landing page!<br><br>art of me was done by my amazing bf @shiazong -></p>
-    </div>
+        <div class="text-layer">
+            <h1>about me</h1>
+            <p>hello!!! im kaixvny!! (you can also call me khai or kai!)<br><br>im a game developer, programmer, and a musician/composer!!!<br><br>ive directed and coded projects such as FNF: The Golden ONE and a few more!<br><br>im genderfluid (he/she) and bisexual! i have several intrests/fixations like hfjONE, Portal/Half-Life, I Love Amy, Undertale/Deltarune and many more!<br><br>i spend most of my time either working on a project or making music! you can find both of those things on the landing page!<br><br>art of me was done by my amazing bf @shiazong -></p>
+        </div>
 
-    <div class="clickable-layer" onclick="showME()">
-        <img src="https://www.kaixvny.com/aboutme/khai.jpg" alt="khai">
+        <div class="clickable-layer" onclick="showME()">
+            <img src="https://www.kaixvny.com/aboutme/khai.jpg" alt="khai">
+        </div>
+        <div class="close-container" onclick="closeWindow()">
+        </div>
     </div>
-    <div class="close-container" onclick="closeWindow()">
-</div>
     
     <audio id="sound1" src="https://www.kaixvny.com/sounds/sillysound1.mp3"></audio>
     <audio id="sound2" src="https://www.kaixvny.com/sounds/sillysound2.mp3"></audio>
     <audio id="sound3" src="https://www.kaixvny.com/sounds/sillysound3.mp3"></audio>
 
     <script>
-    
-    
         window.onload = function() {
             var images = ["https://www.kaixvny.com/aboutme/khai1.png", "https://www.kaixvny.com/aboutme/khai2.png", "https://www.kaixvny.com/aboutme/khai3.png"];
             var randomIndex = Math.floor(Math.random() * images.length);
             document.getElementById("randomLayer").innerHTML = "<img src='" + images[randomIndex] + "' alt='Layer 3'>";
         }
-            function closeWindow() {
-        window.close();
-    }
+        
+        function closeWindow() {
+            window.close();
+        }
 
         function showME() {
             var img = document.querySelector('.clickable-layer img');
@@ -166,9 +172,6 @@
                 img.classList.remove('spin');
             }, 2000);  
         }
-        
-
-
     </script>
 </body>
 </html>
