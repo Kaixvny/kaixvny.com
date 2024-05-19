@@ -220,8 +220,8 @@
     <audio id="clickSound" src="https://www.kaixvny.com/sounds/mouseclick.mp3"></audio>
     <audio id="selectSound" src="https://www.kaixvny.com/sounds/mouseselect.mp3"></audio>
     
-    <audio autoplay loop>
- 	 <source src="https://www.kaixvny.com/sounds/whitenoise.mp3" type="audio/mpeg">
+<audio id="background-music" autoplay loop>
+<source src="https://www.kaixvny.com/sounds/whitenoise.mp3" type="audio/mpeg">
  	 Your browser does not support the audio element.
 	</audio>
 
@@ -233,6 +233,7 @@
     document.addEventListener("click", function(event) {
         if (!event.target.classList.contains('icon') && !event.target.classList.contains('iconrow2') && !event.target.classList.contains('iconsecret')) {
             var clickSound = document.getElementById("clickSound");
+              clickSound.volume = 0.05;
             clickSound.play();
         }
     });
@@ -241,6 +242,9 @@ function playSelectSound() {
     const selectSound = document.getElementById('selectSound');
     selectSound.play();
 }
+
+  var backgroundMusic = document.getElementById("background-music");
+  backgroundMusic.volume = 0.1;
         
                 function openRandomLink() {
             var links = [
