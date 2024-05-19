@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about me!!!</title>
+    <style>
+    
+     	@font-face {
+ 	   font-family: 'determination';
+ 	   src: url('https://www.kaixvny.com/fonts/determination.otf') format('opentype');
+	}
+    
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            max-width: 550px;
+            max-height: 600px;
+            overflow: hidden;
+            position: relative;
+            font-family: 'determination', Arial, sans-serif;
+        }
+
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .layer:nth-child(1) {
+            z-index: 6;
+        }
+
+        .layer:nth-child(2) {
+            z-index: 5;
+        }
+
+        .layer:nth-child(3) {
+            z-index: 4;
+        }
+
+        .layer:nth-child(4) {
+            z-index: 3;
+        }
+
+        .layer:nth-child(5) {
+            z-index: 2;
+        }
+
+        .layer:nth-child(6) {
+            z-index: 1;
+        }
+
+        .text-layer {
+            position: absolute;
+            z-index: 7;
+            top: 10%;
+            left: 50%;
+            transform: translate(-255px, 30px);
+            text-align: left;
+            color: #390d59;
+        }
+
+        .text-layer h1 {
+            font-size: 2em;
+            margin: 0.7em 0;
+        }
+
+        .text-layer p {
+            font-size: 0.9em;
+            margin: 0.4em 0;
+        }
+
+        .clickable-layer {
+            position: absolute;
+            z-index: 8; 
+            top: 50%;
+            left: 50%;
+            transform: translate(75px, 75px);
+            cursor: pointer;
+        }
+
+        .clickable-layer img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid #581489;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spin {
+            animation: spin 2.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="layer"><img src="https://www.kaixvny.com/aboutme/XPBorder.png" alt="Layer 1"></div>
+    <div class="layer"><img src="" alt="Layer 2"></div>
+    <div class="layer" id="randomLayer"><img src="" alt="Layer 3"></div>
+    <div class="layer"><img src="https://www.kaixvny.com/aboutme/Background.png" alt="Layer 6"></div>
+
+    <div class="text-layer">
+        <h1>about me</h1>
+        <p>hello!!! im kaixvny!! (you can also call me khai or kai!)<br><br>im a game developer, programmer, and a musician/composer!!!<br><br>ive directed and coded projects such as FNF: The Golden ONE and a few more!<br><br>im genderfluid (he/she) and bisexual! i have several intrests/fixations like hfjONE, Portal/Half-Life, I Love Amy, Undertale/Deltarune and many more!<br><br>i spend most of my time either working on a project or making music! you can find both of those things on the landing page!<br><br>art of me was done by my amazing bf @shiazong</p>
+    </div>
+
+    <div class="clickable-layer" onclick="showME()">
+        <img src="https://www.kaixvny.com/aboutme/khai.jpg" alt="khai">
+    </div>
+    
+    <audio id="sound1" src="https://www.kaixvny.com/sounds/sillysound1.mp3"></audio>
+    <audio id="sound2" src="https://www.kaixvny.com/sounds/sillysound2.mp3"></audio>
+    <audio id="sound3" src="https://www.kaixvny.com/sounds/sillysound3.mp3"></audio>
+
+    <script>
+    
+    
+        window.onload = function() {
+            var images = ["https://www.kaixvny.com/aboutme/khai1.png", "https://www.kaixvny.com/aboutme/khai2.png", "https://www.kaixvny.com/aboutme/khai3.png"];
+            var randomIndex = Math.floor(Math.random() * images.length);
+            document.getElementById("randomLayer").innerHTML = "<img src='" + images[randomIndex] + "' alt='Layer 3'>";
+        }
+
+        function showME() {
+            var img = document.querySelector('.clickable-layer img');
+            img.classList.add('spin');
+            
+            var sounds = ["sound1", "sound2", "sound3"];
+            var randomIndex2 = Math.floor(Math.random() * sounds.length);
+            var randomSound = document.getElementById(sounds[randomIndex2]);
+            randomSound.play();
+            
+            setTimeout(() => {
+                img.classList.remove('spin');
+            }, 2000); 
+        }
+        
+
+
+    </script>
+</body>
+</html>
