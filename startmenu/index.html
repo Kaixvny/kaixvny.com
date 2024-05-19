@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Menu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .main-container {
+            width: 380px;
+            height: 478px;
+            background-image: url('https://via.placeholder.com/380x478.png');
+            background-size: cover;
+            position: relative;
+        }
+
+        .clickable-container {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        .non-clickable-container {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .non-clickable-container:hover {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="clickable-container"></div>
+        <div class="non-clickable-container"></div>
+    </div>
+</body>
+</html>

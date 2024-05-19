@@ -214,8 +214,8 @@
             <div class="iconsecret iconsecret"></div>
             <div class="iconsecret-text">Secret</div>
         </div>
-
-        <div class="taskbar">
+        
+        <div class="taskbar" onclick="openPopupStart()">
             <div class="start-button" id="start-button"></div>
         </div>
     </div>
@@ -258,6 +258,14 @@ function playSelectSound() {
     var popupURL = 'https://www.kaixvny.com/aboutme'; 
     var popupName = 'About Me!!!';
     var popupFeatures = 'width=550,height=600,scrollbars=yes';
+
+    var popupWindow = window.open(popupURL, popupName, popupFeatures);
+}
+
+function openPopupStart() {
+    var popupURL = 'https://www.kaixvny.com/startmenu'; 
+    var popupName = 'Start Menu';
+    var popupFeatures = 'width=380,height=478,scrollbars=yes';
 
     var popupWindow = window.open(popupURL, popupName, popupFeatures);
 }
