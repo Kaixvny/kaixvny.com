@@ -6,10 +6,13 @@
     <title>welcome...</title>
     <style>
     
+    
+    
  	@font-face {
  	   font-family: 'CustomFont';
  	   src: url('https://www.kaixvny.com/fonts/winxp.ttf') format('truetype');
 	}
+    
 
 	body, html {
    	 height: 100%;
@@ -20,6 +23,7 @@
    	 background-color: #000000;
    	 font-family: 'CustomFont', Arial, sans-serif;
 	}
+    
 
         .container {
             width: 400px;
@@ -167,6 +171,9 @@
             position: absolute;
             left: 0;
         }
+        
+
+
 
         .start-button:hover {
             background-image: url('https://www.kaixvny.com/images/starthover.png');
@@ -187,7 +194,7 @@
             <div class="icon icon3"></div>
             <div class="icon-text">Social</div>
         </div>
-        <div class="icon-container" onclick="alert('music')">
+        <div class="icon-container" onclick="playClickSound()">
             <div class="icon icon4"></div>
             <div class="icon-text">Music</div>
         </div>
@@ -210,9 +217,18 @@
         </div>
     </div>
 
+    <audio id="clickSound" src="https://www.kaixvny.com/sounds/mouseclick.mp3"></audio>
+    <audio id="selectSound" src="https://www.kaixvny.com/sounds/mouseselect.mp3"></audio>
+
     <script>
         const container = document.getElementById('container');
         const initialBackgroundImage = container.style.backgroundImage;
+        
+    
+    document.addEventListener("click", function() {
+  var clickSound = document.getElementById("clickSound");
+  clickSound.play();
+});
         
                 function openRandomLink() {
             var links = [
