@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>happy birthday amykiro</title>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+
+        img {
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday!</h1>
+    <img src="https://www.kaixvny.com/images/but.png" alt="Birthday Image" id="birthdayImage">
+    <audio id="clickSound" src="https://www.kaixvny.com/sounds/thesound.mp3"></audio>
+
+    <script>
+        const img = document.getElementById('birthdayImage');
+        const clickSound = document.getElementById('clickSound');
+        let popup;
+
+        img.addEventListener('click', () => {
+            clickSound.play();
+            if (!popup || popup.closed) {
+                popup = window.open("", "", `width=200,height=100`);
+                popup.document.write(`
+                    <html>
+                    <head>
+                        <title>Popup</title>
+                        <style>
+                            body {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100%;
+                                margin: 0;
+                                font-family: 'Comic Sans MS', cursive, sans-serif;
+                                text-align: center;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <script>
+                            window.location.href = "https://www.kaixvny.com/passismeow";
+                        <\/script>
+                    </body>
+                    </html>
+                `);
+                movePopup();
+            }
+        });
+
+        function movePopup() {
+            let x = Math.random() * (window.innerWidth - 200);
+            let y = Math.random() * (window.innerHeight - 100);
+            let dx = 4;
+            let dy = 4;
+
+            function animate() {
+                x += dx;
+                y += dy;
+
+                if (x <= 0 || x >= window.innerWidth - 200) {
+                    dx = -dx;
+                }
+                if (y <= 0 || y >= window.innerHeight - 100) {
+                    dy = -dy;
+                }
+
+                if (popup && !popup.closed) {
+                    popup.moveTo(x, y);
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+    </script>
+</body>
+</html>
