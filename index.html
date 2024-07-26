@@ -177,7 +177,7 @@
             <div class="icon icon3"></div>
             <div class="icon-text">Social</div>
         </div>
-        <div class="icon-container" onclick="playSelectSound(); window.location.href = 'https://open.spotify.com/artist/0N9FTcKx0jm945Xd10mZ6a';">
+        <div class="icon-container" onclick="playSelectSound(); openPopupSpotify()">
             <div class="icon icon4"></div>
             <div class="icon-text">Music</div>
         </div>
@@ -240,6 +240,14 @@
         }
 
         var startPopupWindow;
+
+        function openPopupSpotify() {
+            var popupURL = 'https://www.kaixvny.com/spotify'; 
+            var popupName = 'About Me!!!';
+            var popupFeatures = 'width=460,height=195,scrollbars=yes';
+
+            var popupWindow = window.open(popupURL, popupName, popupFeatures);
+        }
 
         function openPopupStart() {
             var popupURL = 'https://www.kaixvny.com/startmenu'; 
