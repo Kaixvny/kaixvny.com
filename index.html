@@ -173,7 +173,7 @@
             <div class="icon icon2"></div>
             <div class="icon-text">Projects</div>
         </div>
-        <div class="icon-container" onclick="playSelectSound(); window.location.href = 'https://linktr.ee/kaixvny';">
+        <div class="icon-container" onclick="playSelectSound(); openPopupSpotify()">
             <div class="icon icon3"></div>
             <div class="icon-text">Social</div>
         </div>
@@ -243,6 +243,14 @@
 
         function openPopupSpotify() {
             var popupURL = 'https://www.kaixvny.com/spotify'; 
+            var popupName = 'About Me!!!';
+            var popupFeatures = 'width=460,height=195,scrollbars=yes,left=280,top=210';
+
+            var popupWindow = window.open(popupURL, popupName, popupFeatures);
+        }
+
+        function openPopupSocials() {
+            var popupURL = 'https://www.kaixvny.com/socials'; 
             var popupName = 'About Me!!!';
             var popupFeatures = 'width=460,height=195,scrollbars=yes,left=280,top=210';
 
