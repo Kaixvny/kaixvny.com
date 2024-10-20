@@ -103,9 +103,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 10px;
+            margin: 17px;
             cursor: pointer;
-            transform: translate(240px, 40px);
+            transform: translate(154px, 40px);
         }
 
         .iconsecret {
@@ -120,8 +120,24 @@
             margin-top: 5px;
         }
 
+        .iconparappa {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+        }
+
+        .iconparappa-text {
+            color: white;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
         .iconsecret {
             background-image: url('https://www.kaixvny.com/images/lock.png');
+        }
+
+        .iconparappa {
+            background-image: url('https://www.kaixvny.com/images/favicon.gif');
         }
         
         .icon:hover {
@@ -191,6 +207,10 @@
             <div class="icon-text">Trash</div>
         </div>
         <div class="iconsecret-container" onclick="handleIconSecretClick()">
+            <div class="iconparappa iconsecret"></div>
+            <div class="iconparappa-text">Parappa</div>
+        </div>
+        <div class="iconsecret-container" onclick="alert('parappa the rapper in html soon give me a while')">
             <div class="iconsecret iconsecret"></div>
             <div class="iconsecret-text">Secret</div>
         </div>
