@@ -206,11 +206,11 @@
             <div class="iconrow2 iconrow21"></div>
             <div class="icon-text">Trash</div>
         </div>
-        <div class="iconsecret-container" onclick="handleIconSecretClick()">
+        <div class="iconsecret-container" onclick="openParappa()">
             <div class="iconparappa iconsecret"></div>
             <div class="iconparappa-text">Parappa</div>
         </div>
-        <div class="iconsecret-container" onclick="alert('parappa the rapper in html soon give me a while')">
+        <div class="iconsecret-container" onclick="handleIconSecretClick()">
             <div class="iconsecret iconsecret"></div>
             <div class="iconsecret-text">Secret</div>
         </div>
@@ -235,6 +235,10 @@
     <script>
         const container = document.getElementById('container');
         const initialBackgroundImage = container.style.backgroundImage;
+
+        function openParappa() {
+            window.location.href = "https://parappa.kaixvny.com/"
+        }
 
         document.addEventListener("click", function(event) {
             if (!event.target.classList.contains('icon') && !event.target.classList.contains('iconrow2') && !event.target.classList.contains('iconsecret')) {
