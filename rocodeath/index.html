@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>roco death countdown</title>
   <style>
-
     @font-face {
- 	   font-family: 'determination';
- 	   src: url('https://www.kaixvny.com/fonts/determination.otf') format('opentype');
-	}
+      font-family: 'determination';
+      src: url('https://www.kaixvny.com/fonts/determination.otf') format('opentype');
+    }
 
     body {
       display: flex;
@@ -21,6 +20,8 @@
       font-family: 'determination', Arial, sans-serif;
       background: linear-gradient(to bottom, #1f214f, #555895);
       color: #fff;
+      overflow: hidden;
+      transition: background 1s ease;
     }
     h1 {
       font-size: 2.5em;
@@ -42,6 +43,28 @@
       margin-top: 10px;
       color: #3eee52;
     }
+    .slide-in {
+      opacity: 1;
+      transform: translate(-20px, -20px);
+    }
+    .gun {
+        position: absolute;
+        width: 400px;
+        bottom: 150px;
+        right: 400px;
+        opacity: 0;
+        z-index: 10;
+        transition: transform 2s ease-out, opacity 2s;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-5px, 5px); }
+      50% { transform: translate(5px, -5px); }
+      75% { transform: translate(-5px, 5px); }
+    }
+    .shake {
+      animation: shake 0.5s ease-in-out 2;
+    }
     @keyframes squish {
       0%, 100% { transform: scaleY(1); }
       50% { transform: scaleY(0.8); }
@@ -50,24 +73,42 @@
 </head>
 <body>
 
-  <h1>countdown until roco's account FUCKING dies</h1>
+  <h1>countdown until roco's account fucking dies</h1>
   <div class="counter" id="counter">loading timer</div>
-  <img src="https://www.kaixvny.com/rocodeath/roco.webp" class="roco">
+  <img src="roco.webp" class="roco" id="roco">
   <div class="status" id="status">status: alive</div>
+
+  <img src="gun.png" id="gun" class="gun" alt="gun">
+  <audio id="gunshot" src="gunshot.mp3"></audio>
 
   <script>
     const targetDate = new Date("November 12, 2024 21:19:00 PST").getTime();
+    const hiddenImage = document.getElementById("gun");
+    const roco = document.getElementById("roco");
+    const soundEffect = document.getElementById("gunshot");
 
     function updateCountdown() {
       const now = new Date().getTime();
       const timeLeft = targetDate - now;
 
       if (timeLeft < 0) {
-        document.getElementById("counter").innerHTML = "DEATH!!!";
+    document.getElementById("counter").innerHTML = "DEATH!!!";
+
+    hiddenImage.classList.add("slide-in");
+    document.getElementById("gun").style.opacity = "1";
+    
+    setTimeout(() => {
+        hiddenImage.classList.add("shake");
+        soundEffect.play();
+        roco.src = "rocoDEAD.jpg";
+        document.body.style.background = "linear-gradient(to bottom, #6a2525, #d60d0d)";
         document.getElementById("status").innerHTML = "Status: Dead";
         document.getElementById("status").style.color = "#ee3e3e";
-        return;
-      }
+    }, 3000);
+
+    return;
+}
+
 
       const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
