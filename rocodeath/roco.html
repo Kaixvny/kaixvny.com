@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>roco death countdown</title>
+  <style>
+
+    @font-face {
+ 	   font-family: 'determination';
+ 	   src: url('https://www.kaixvny.com/fonts/determination.otf') format('opentype');
+	}
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'determination', Arial, sans-serif;
+      background: linear-gradient(to bottom, #1f214f, #555895);
+      color: #fff;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #fff;
+      margin: 0;
+      text-align: center;
+    }
+    .counter {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+    .roco {
+      width: 200px;
+      margin-top: 20px;
+      animation: squish 1s ease-in-out infinite;
+    }
+    .status {
+      font-size: 1.5em;
+      margin-top: 10px;
+      color: #3eee52;
+    }
+    @keyframes squish {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.8); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>countdown until roco's account FUCKING dies</h1>
+  <div class="counter" id="counter">loading timer</div>
+  <img src="https://www.kaixvny.com/rocodeath/roco.webp" class="roco">
+  <div class="status" id="status">status: alive</div>
+
+  <script>
+    const targetDate = new Date("November 12, 2024 21:19:00 PST").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
+
+      if (timeLeft < 0) {
+        document.getElementById("counter").innerHTML = "DEATH!!!";
+        document.getElementById("status").innerHTML = "Status: Dead";
+        document.getElementById("status").style.color = "#ee3e3e";
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("counter").innerHTML = 
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
