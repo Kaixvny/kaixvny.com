@@ -23,7 +23,7 @@
         }
 
         .background {
-            background-image: url('images/socialborder.png');
+            background-image: url('../images/socialborder.png');
             width: 100%;
             height: 100%;
             background-position: left;
@@ -81,17 +81,17 @@
     <script>
         const socialConfig = {
             twitter: {
-                image: 'images/twittermini.png',
+                image: '../images/twittermini.png',
                 link: 'https://twitter.com/kaixvny',
                 title: 'twitter',
             },
             youtube: {
-                image: 'images/youtube.svg',
+                image: '../images/youtube.svg',
                 link: 'https://www.youtube.com/channel/UCxBKpPi294Z8bmiFXg31DCQ',
                 title: 'youtube',
             },
             github: {
-                image: 'images/github.svg',
+                image: '../images/github.svg',
                 link: 'https://github.com/kaixvny',
                 title: 'github',
             },
@@ -109,7 +109,7 @@
 
             document.title = socialConfig[social].title;
         } else {
-            console.error('Invalid social media type specified in the URL.');
+            console.error('invalid social');
         }
     </script>
 </body>
