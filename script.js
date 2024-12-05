@@ -42,11 +42,10 @@ function openPopupSpotify() {
 
 function openPopupSocials() {
     const popupURL = 'socials/index.html';
-    const popupFeatures = 'width=195,height=195,scrollbars=no';
+    const popupWidth = 195;
+    const popupHeight = 255; // WHAT THE FUCK
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
-    const popupWidth = 195;
-    const popupHeight = 195;
     const centerX = screenWidth / 2;
     const centerY = screenHeight / 2;
     const offsetPos = 150;
@@ -60,11 +59,14 @@ function openPopupSocials() {
         right: { x: centerX + offsetPos, y: centerY - popupHeight / 2 }
     };
 
+    const popupFeatures = (x, y) =>
+        `width=${popupWidth},height=${popupHeight},scrollbars=no,resizable=no,left=${x},top=${y}`;
+
     const popups = [
-        window.open(`${popupURL}?social=twitter`, 'social1', `${popupFeatures},left=${positions.top.x},top=${positions.top.y}`),
-        window.open(`${popupURL}?social=youtube`, 'social2', `${popupFeatures},left=${positions.bottom.x},top=${positions.bottom.y}`),
-        window.open(`${popupURL}?social=github`, 'social3', `${popupFeatures},left=${positions.left.x},top=${positions.left.y}`),
-        window.open(`${popupURL}?social=bluesky`, 'social4', `${popupFeatures},left=${positions.right.x},top=${positions.right.y}`)
+        window.open(`${popupURL}?social=twitter`, 'social1', popupFeatures(positions.top.x, positions.top.y)),
+        window.open(`${popupURL}?social=youtube`, 'social2', popupFeatures(positions.bottom.x, positions.bottom.y)),
+        window.open(`${popupURL}?social=github`, 'social3', popupFeatures(positions.left.x, positions.left.y)),
+        window.open(`${popupURL}?social=bluesky`, 'social4', popupFeatures(positions.right.x, positions.right.y))
     ];
 
     let startTime = Date.now();
@@ -76,10 +78,16 @@ function openPopupSocials() {
         popups.forEach((popup, i) => {
             if (popup && !popup.closed) {
                 const sineOffset = Math.sin(angle + (i * Math.PI) / 2) * floatDistance;
-                const newTop = positions[Object.keys(positions)[i]].y + sineOffset;
-                const newLeft = positions[Object.keys(positions)[i]].x;
+                const basePosition = positions[Object.keys(positions)[i]];
+                const newTop = Math.round(basePosition.y + sineOffset);
+                const newLeft = Math.round(basePosition.x);
 
-                popup.moveTo(newLeft, newTop);
+                try {
+                    popup.resizeTo(popupWidth + 20, popupHeight + 20); // what the fuck
+                    popup.moveTo(newLeft, newTop);
+                } catch (error) {
+                    console.warn('FUCK');
+                }
             }
         });
 
@@ -91,6 +99,7 @@ function openPopupSocials() {
         }
     }, floatSpeed);
 }
+
 
 function openPopupStart() {
     const popupURL = 'startmenu';
