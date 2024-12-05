@@ -75,6 +75,7 @@ body { background-color: black }
     position: absolute;
     bottom: 15px;
     right: 15px;
+    image-rendering: pixelated;
 }
 
 .icon:hover, .iconrow2:hover, .iconsecret:hover, .settings:hover {
