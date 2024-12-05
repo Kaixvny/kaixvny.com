@@ -8,7 +8,7 @@
     
      	@font-face {
  	   font-family: 'determination';
- 	   src: url('fonts/determination.otf') format('opentype');
+ 	   src: url('../fonts/determination.otf') format('opentype');
 	}
     
         body {
@@ -127,10 +127,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="layer"><img src="aboutme/XPBorder.png" alt="Layer 1"></div>
+        <div class="layer"><img src="XPBorder.png" alt="Layer 1"></div>
         <div class="layer"><img src="" alt="Layer 2"></div>
         <div class="layer" id="randomLayer"><img src="" alt="Layer 3"></div>
-        <div class="layer"><img src="aboutme/Background.png" alt="Layer 6"></div>
+        <div class="layer"><img src="Background.png" alt="Layer 6"></div>
 
         <div class="text-layer">
             <h1>about me</h1>
@@ -138,19 +138,19 @@
         </div>
 
         <div class="clickable-layer" onclick="showME()">
-            <img src="aboutme/khai.jpg" alt="khai">
+            <img src="khai.jpg" alt="khai">
         </div>
         <div class="close-container" onclick="closeWindow()">
         </div>
     </div>
     
-    <audio id="sound1" src="sounds/sillysound1.mp3"></audio>
-    <audio id="sound2" src="sounds/sillysound2.mp3"></audio>
-    <audio id="sound3" src="sounds/sillysound3.mp3"></audio>
+    <audio id="sound1" src="../sounds/sillysound1.mp3"></audio>
+    <audio id="sound2" src="../sounds/sillysound2.mp3"></audio>
+    <audio id="sound3" src="../sounds/sillysound3.mp3"></audio>
 
     <script>
         window.onload = function() {
-            var images = ["aboutme/khai1.png", "aboutme/khai2.png", "aboutme/khai3.png"];
+            var images = ["khai1.png", "khai2.png", "khai3.png"];
             var randomIndex = Math.floor(Math.random() * images.length);
             document.getElementById("randomLayer").innerHTML = "<img src='" + images[randomIndex] + "' alt='Layer 3'>";
         }
