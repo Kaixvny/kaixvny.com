@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'XPFont';
-    src: url('https://www.kaixvny.com/fonts/winxp.ttf') format('truetype');
+    src: url('fonts/winxp.ttf') format('truetype');
 }
 
 body, html {
@@ -19,7 +19,7 @@ body { background-color: black }
 .container {
     width: 400px;
     height: 320px;
-    background-image: url('https://www.kaixvny.com/images/winxp.jpg');
+    background-image: url('images/winxp.jpg');
     background-size: cover;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     display: flex;
@@ -59,14 +59,14 @@ body { background-color: black }
     margin-top: 5px;
 }
 
-.icon1 { background-image: url('https://www.kaixvny.com/images/computer.png'); }
-.icon2 { background-image: url('https://www.kaixvny.com/images/folder.png'); }
-.icon3 { background-image: url('https://www.kaixvny.com/images/msn.png'); }
-.icon4 { background-image: url('https://www.kaixvny.com/images/music.png'); }
-.icon5 { background-image: url('https://www.kaixvny.com/images/www.png'); }
-.iconrow21 { background-image: url('https://www.kaixvny.com/images/trash.png'); }
-.iconsecret { background-image: url('https://www.kaixvny.com/images/lock.png'); }
-.iconparappa { background-image: url('https://www.kaixvny.com/images/favicon.gif'); }
+.icon1 { background-image: url('images/computer.png'); }
+.icon2 { background-image: url('images/folder.png'); }
+.icon3 { background-image: url('images/msn.png'); }
+.icon4 { background-image: url('images/music.png'); }
+.icon5 { background-image: url('images/www.png'); }
+.iconrow21 { background-image: url('images/trash.png'); }
+.iconsecret { background-image: url('images/lock.png'); }
+.iconparappa { background-image: url('images/favicon.gif'); }
 
 .icon:hover, .iconrow2:hover, .iconsecret:hover {
     transform: scale(1.05);
@@ -78,7 +78,7 @@ body { background-color: black }
     left: 0;
     width: 100%;
     height: 25px;
-    background-image: url('https://www.kaixvny.com/images/taskbar.png');
+    background-image: url('images/taskbar.png');
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -88,7 +88,7 @@ body { background-color: black }
 .start-button {
     width: 100px;
     height: 100%;
-    background-image: url('https://www.kaixvny.com/images/start.png');
+    background-image: url('images/start.png');
     background-size: cover;
     cursor: pointer;
     transition: background-image 0.3s;
@@ -97,7 +97,7 @@ body { background-color: black }
 }
 
 .start-button:hover {
-    background-image: url('https://www.kaixvny.com/images/starthover.png');
+    background-image: url('images/starthover.png');
 }
 
 .diamond-pattern {
