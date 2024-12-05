@@ -43,7 +43,7 @@ function openPopupSpotify() {
 function openPopupSocials() {
     const popupURL = 'socials/index.html';
     const popupWidth = 195;
-    const popupHeight = 255; // WHAT THE FUCK
+    const popupHeight = 250; // WHAT THE FUCK
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
     const centerX = screenWidth / 2;
