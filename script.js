@@ -25,7 +25,7 @@ const backgroundMusic = document.getElementById("background-music");
 backgroundMusic.volume = 0.1;
 
 function openPopupAboutMe() {
-    const popupURL = 'https://www.kaixvny.com/aboutme';
+    const popupURL = 'aboutme';
     const popupName = 'About Me!!!';
     const popupFeatures = 'width=550,height=600,scrollbars=no';
 
@@ -33,7 +33,7 @@ function openPopupAboutMe() {
 }
 
 function openPopupSpotify() {
-    const popupURL = 'https://www.kaixvny.com/spotify';
+    const popupURL = 'spotify';
     const popupName = 'Spotify';
     const popupFeatures = 'width=460,height=195,scrollbars=no,left=280,top=210';
 
@@ -93,16 +93,16 @@ function openPopupSocials() {
 }
 
 function openPopupStart() {
-    const popupURL = 'https://www.kaixvny.com/startmenu';
+    const popupURL = 'startmenu';
     const popupName = 'Start Menu';
     const popupFeatures = 'width=380,height=478,scrollbars=no';
 
     const startPopupWindow = window.open(popupURL, popupName, popupFeatures);
-    document.getElementById('start-button').style.backgroundImage = 'url("https://www.kaixvny.com/images/startclick.png")';
+    document.getElementById('start-button').style.backgroundImage = 'url("images/startclick.png")';
 
     const checkPopupClosed = setInterval(() => {
         if (startPopupWindow.closed) {
-            document.getElementById('start-button').style.backgroundImage = 'url("https://www.kaixvny.com/images/start.png")';
+            document.getElementById('start-button').style.backgroundImage = 'url("images/start.png")';
             clearInterval(checkPopupClosed);
         }
     }, 1000);
@@ -110,16 +110,16 @@ function openPopupStart() {
 
 function openRandomLink() {
     const links = [
-        "https://www.kaixvny.com/trash/amelia.mp3",
-        "https://www.kaixvny.com/trash/average kaixvny song.mp3",
-        "https://www.kaixvny.com/trash/FOX SZN ILY.mp3",
-        "https://www.kaixvny.com/trash/gave bro a perc and told him it was a smartie.mp3",
-        "https://www.kaixvny.com/trash/in a far away universe.mp3",
-        "https://www.kaixvny.com/trash/simon cowel.mp3",
-        "https://www.kaixvny.com/trash/VITAL.mp3",
-        "https://www.kaixvny.com/trash/VOCALS MISSING.mp3",
-        "https://www.kaixvny.com/trash/whatsapp.html",
-        "https://www.kaixvny.com/trash/donkeykong"
+        "trash/amelia.mp3",
+        "trash/average kaixvny song.mp3",
+        "trash/FOX SZN ILY.mp3",
+        "trash/gave bro a perc and told him it was a smartie.mp3",
+        "trash/in a far away universe.mp3",
+        "trash/simon cowel.mp3",
+        "trash/VITAL.mp3",
+        "trash/VOCALS MISSING.mp3",
+        "trash/whatsapp.html",
+        "trash/donkeykong"
     ];
 
     const randomIndex = Math.floor(Math.random() * links.length);
@@ -127,7 +127,7 @@ function openRandomLink() {
 }
 
 function changeContainerImage() {
-    container.style.backgroundImage = "url('https://www.kaixvny.com/images/home.jpg')";
+    container.style.backgroundImage = "url('images/home.jpg')";
 }
 
 function handleIconSecretClick() {
