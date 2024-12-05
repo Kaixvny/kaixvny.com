@@ -1,0 +1,124 @@
+
+@font-face {
+    font-family: 'XPFont';
+    src: url('https://www.kaixvny.com/fonts/winxp.ttf') format('truetype');
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000000;
+    font-family: 'XPFont', Arial, sans-serif;
+}
+
+body { background-color: black }
+
+.container {
+    width: 400px;
+    height: 320px;
+    background-image: url('https://www.kaixvny.com/images/winxp.jpg');
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.icon-container, .iconrow2-container, .iconsecret-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 14px;
+    cursor: pointer;
+}
+
+.iconrow2-container {
+    margin: 10px;
+    transform: translate(8px, -70px);
+}
+
+.iconsecret-container {
+    margin: 17px;
+    transform: translate(154px, 40px);
+}
+
+.icon, .iconrow2, .iconsecret {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+.icon-text, .iconrow2-text, .iconsecret-text, .iconparappa-text {
+    color: white;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.icon1 { background-image: url('https://www.kaixvny.com/images/computer.png'); }
+.icon2 { background-image: url('https://www.kaixvny.com/images/folder.png'); }
+.icon3 { background-image: url('https://www.kaixvny.com/images/msn.png'); }
+.icon4 { background-image: url('https://www.kaixvny.com/images/music.png'); }
+.icon5 { background-image: url('https://www.kaixvny.com/images/www.png'); }
+.iconrow21 { background-image: url('https://www.kaixvny.com/images/trash.png'); }
+.iconsecret { background-image: url('https://www.kaixvny.com/images/lock.png'); }
+.iconparappa { background-image: url('https://www.kaixvny.com/images/favicon.gif'); }
+
+.icon:hover, .iconrow2:hover, .iconsecret:hover {
+    transform: scale(1.05);
+}
+
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-image: url('https://www.kaixvny.com/images/taskbar.png');
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.start-button {
+    width: 100px;
+    height: 100%;
+    background-image: url('https://www.kaixvny.com/images/start.png');
+    background-size: cover;
+    cursor: pointer;
+    transition: background-image 0.3s;
+    position: absolute;
+    left: 0;
+}
+
+.start-button:hover {
+    background-image: url('https://www.kaixvny.com/images/starthover.png');
+}
+
+.diamond-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: linear-gradient(45deg, #040404 25%, transparent 25%, transparent 75%, #040404 75%, #040404),
+                      linear-gradient(45deg, #040404 25%, transparent 25%, transparent 75%, #040404 75%, #040404);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    animation: marquee 2s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        background-position: 0 40px, 20px 60px;
+    }
+    100% {
+        background-position: 40px 0px, 60px 20px;
+    }
+}

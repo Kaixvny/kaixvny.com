@@ -4,182 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>welcome...</title>
-    <style>
-        @font-face {
-            font-family: 'XPFont';
-            src: url('https://www.kaixvny.com/fonts/winxp.ttf') format('truetype');
-        }
-        
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000000;
-            font-family: 'XPFont', Arial, sans-serif;
-        }
-
-        
-        .container { 
-            width: 400px;
-            height: 320px;
-            background-image: url('https://www.kaixvny.com/images/winxp.jpg');
-            background-size: cover;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .icon-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 14px;
-            cursor: pointer;
-        }
-
-        .icon {
-            width: 40px;
-            height: 40px;
-            background-size: cover;
-        }
-
-        .icon-text {
-            color: white;
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        .icon1 {
-            background-image: url('https://www.kaixvny.com/images/computer.png');
-        }
-        .icon2 {
-            background-image: url('https://www.kaixvny.com/images/folder.png');
-        }
-        .icon3 {
-            background-image: url('https://www.kaixvny.com/images/msn.png');
-        }
-        .icon4 {
-            background-image: url('https://www.kaixvny.com/images/music.png');
-        }
-        .icon5 {
-            background-image: url('https://www.kaixvny.com/images/www.png');
-        }
-
-        .icon:hover {
-            transform: scale(1.05);
-        }
-        
-        .iconrow2-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 10px;
-            cursor: pointer;
-            transform: translate(8px, -70px);
-        }
-
-        .iconrow2 {
-            width: 40px;
-            height: 40px;
-            background-size: cover;
-        }
-
-        .iconrow2-text {
-            color: white;
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        .iconrow21 {
-            background-image: url('https://www.kaixvny.com/images/trash.png');
-        }
-        
-        .iconsecret-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 17px;
-            cursor: pointer;
-            transform: translate(154px, 40px);
-        }
-
-        .iconsecret {
-            width: 40px;
-            height: 40px;
-            background-size: cover;
-        }
-
-        .iconsecret-text {
-            color: white;
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        .iconparappa {
-            width: 40px;
-            height: 40px;
-            background-size: cover;
-        }
-
-        .iconparappa-text {
-            color: white;
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        .iconsecret {
-            background-image: url('https://www.kaixvny.com/images/lock.png');
-        }
-
-        .iconparappa {
-            background-image: url('https://www.kaixvny.com/images/favicon.gif');
-        }
-        
-        .icon:hover {
-            transform: scale(1.05);
-        }
-        .iconrow2:hover {
-            transform: scale(1.05);
-        }
-        .iconsecret:hover {
-            transform: scale(1.05);
-        }
-        
-        .taskbar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 25px;
-            background-image: url('https://www.kaixvny.com/images/taskbar.png');
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            box-sizing: border-box;
-        }
-
-        .start-button {
-            width: 100px;
-            height: 100%;
-            background-image: url('https://www.kaixvny.com/images/start.png'); 
-            background-size: cover;
-            cursor: pointer;
-            transition: background-image 0.3s;
-            position: absolute;
-            left: 0;
-        }
-
-        .start-button:hover {
-            background-image: url('https://www.kaixvny.com/images/starthover.png');
-        }
-    </style>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="https://www.kaixvny.com/images/favicon.ico">
 </head>
 <body>
+    <div class="diamond-pattern"></div>
     <div class="container" id="container">
         <div class="icon-container" onclick="playSelectSound(); openPopupAboutMe()">
             <div class="icon icon1"></div>
@@ -189,7 +18,7 @@
             <div class="icon icon2"></div>
             <div class="icon-text">Projects</div>
         </div>
-        <div class="icon-container" onclick="playSelectSound(); openPopupSpotify()">
+        <div class="icon-container" onclick="playSelectSound(); openPopupSocials()">
             <div class="icon icon3"></div>
             <div class="icon-text">Social</div>
         </div>
@@ -197,11 +26,10 @@
             <div class="icon icon4"></div>
             <div class="icon-text">Music</div>
         </div>
-        <div class="icon-container" onclick="playSelectSound()">
+        <div class="icon-container" onclick="alert('work in progress!')">
             <div class="icon icon5"></div>
             <div class="icon-text">Other Sites</div>
         </div>
-
         <div class="iconrow2-container" onclick="openRandomLink()">
             <div class="iconrow2 iconrow21"></div>
             <div class="icon-text">Trash</div>
@@ -214,150 +42,16 @@
             <div class="iconsecret iconsecret"></div>
             <div class="iconsecret-text">Secret</div>
         </div>
-        
         <div class="taskbar" onclick="openPopupStart()">
             <div class="start-button" id="start-button"></div>
         </div>
     </div>
-
     <audio id="clickSound" src="https://www.kaixvny.com/sounds/mouseclick.mp3"></audio>
     <audio id="selectSound" src="https://www.kaixvny.com/sounds/mouseselect.mp3"></audio>
-    
     <audio id="background-music" autoplay loop>
         <source src="https://www.kaixvny.com/sounds/whitenoise.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    
-    <link rel="preload" href="https://www.kaixvny.com/images/home.jpg" as="image">
-    <link rel="preload" href="https://www.kaixvny.com/images/starthover.png" as="image">
-    <link rel="preload" href="https://www.kaixvny.com/images/startclickpng" as="image">
-
-    <script>
-        const container = document.getElementById('container');
-        const initialBackgroundImage = container.style.backgroundImage;
-
-        function openParappa() {
-            window.location.href = "https://parappa.kaixvny.com/"
-        }
-
-        document.addEventListener("click", function(event) {
-            if (!event.target.classList.contains('icon') && !event.target.classList.contains('iconrow2') && !event.target.classList.contains('iconsecret')) {
-                var clickSound = document.getElementById("clickSound");
-                clickSound.play();
-            }
-        });
-
-        function playSelectSound() {
-            const selectSound = document.getElementById('selectSound');
-            selectSound.play();
-        }
-
-        var backgroundMusic = document.getElementById("background-music");
-        backgroundMusic.volume = 0.1;
-
-        function openPopupAboutMe() {
-            var popupURL = 'https://www.kaixvny.com/aboutme'; 
-            var popupName = 'About Me!!!';
-            var popupFeatures = 'width=550,height=600,scrollbars=yes';
-
-            var popupWindow = window.open(popupURL, popupName, popupFeatures);
-        }
-
-        var startPopupWindow;
-
-        function openPopupSpotify() {
-            var popupURL = 'https://www.kaixvny.com/spotify'; 
-            var popupName = 'About Me!!!';
-            var popupFeatures = 'width=460,height=195,scrollbars=yes,left=280,top=210';
-
-            var popupWindow = window.open(popupURL, popupName, popupFeatures);
-        }
-
-        function openPopupSocials() {
-            var popupURL = 'https://www.kaixvny.com/socials'; 
-            var popupName = 'About Me!!!';
-            var popupFeatures = 'width=460,height=195,scrollbars=yes,left=280,top=210';
-
-            var popupWindow = window.open(popupURL, popupName, popupFeatures);
-        }
-
-        function openPopupStart() {
-            var popupURL = 'https://www.kaixvny.com/startmenu'; 
-            var popupName = 'Start Menu';
-            var popupFeatures = 'width=380,height=478,scrollbars=yes';
-
-            startPopupWindow = window.open(popupURL, popupName, popupFeatures);
-            document.getElementById('start-button').style.backgroundImage = 'url("https://www.kaixvny.com/images/startclick.png")';
-
-            var checkPopupClosed = setInterval(function() {
-                if (startPopupWindow.closed) {
-                    document.getElementById('start-button').style.backgroundImage = 'url("https://www.kaixvny.com/images/start.png")';
-                    clearInterval(checkPopupClosed);
-                }
-            }, 1000);
-        }
-
-        function openRandomLink() {
-            var links = [
-                "https://www.kaixvny.com/trash/amelia.mp3",
-                "https://www.kaixvny.com/trash/average kaixvny song.mp3",
-                "https://www.kaixvny.com/trash/FOX SZN ILY.mp3",
-                "https://www.kaixvny.com/trash/gave bro a perc and told him it was a smartie.mp3",
-                "https://www.kaixvny.com/trash/in a far away universe.mp3",
-                "https://www.kaixvny.com/trash/simon cowel.mp3",
-                "https://www.kaixvny.com/trash/VITAL.mp3",
-                "https://www.kaixvny.com/trash/VOCALS MISSING.mp3",
-                "https://www.kaixvny.com/trash/whatsapp.html",
-                "https://www.kaixvny.com/trash/donkeykong"
-            ];
-
-            var randomIndex = Math.floor(Math.random() * links.length);
-
-            window.location.href = links[randomIndex];
-        }
-
-        function changeContainerImage() {
-            var container = document.getElementById('container');
-            container.style.backgroundImage = "url('https://www.kaixvny.com/images/home.jpg')";
-        }
-
-        function handleIconSecretClick() {
-            changeContainerImage();
-            setTimeout(checkPassword, 1);
-        }
-
-        async function checkPassword() {
-            const password = prompt('Enter password:');
-            const hashedPassword = await hashPassword(password);
-            const correctHash = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08'; // precomputed hash for 'test'
-
-            if (hashedPassword === correctHash) {
-                alert('woohoo');
-            } else {
-                alert('denied.');
-                container.style.backgroundImage = initialBackgroundImage;
-            }
-        }
-
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            return bufferToHex(hashBuffer);
-        }
-
-        function bufferToHex(buffer) {
-            const hexCodes = [];
-            const view = new DataView(buffer);
-            for (let i = 0; i < view.byteLength; i += 4) {
-                const value = view.getUint32(i);
-                const stringValue = value.toString(16);
-                const padding = '00000000';
-                const paddedValue = (padding + stringValue).slice(-padding.length);
-                hexCodes.push(paddedValue);
-            }
-            return hexCodes.join('');
-        }
-    </script>
+        <script src="script.js"></script>
 </body>
 </html>
