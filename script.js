@@ -41,7 +41,7 @@ function openPopupSpotify() {
 }
 
 function openPopupSocials() {
-    const popupURL = 'index.html';
+    const popupURL = 'socials';
     const popupFeatures = 'width=195,height=195,scrollbars=no';
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
@@ -94,7 +94,7 @@ function openPopupSocials() {
 
 function openPopupStart() {
     const popupURL = 'startmenu';
-    const popupName = 'Start Menu';
+    const popupName = 'start menu';
     const popupFeatures = 'width=380,height=478,scrollbars=no';
 
     const startPopupWindow = window.open(popupURL, popupName, popupFeatures);
