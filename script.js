@@ -41,7 +41,7 @@ function openPopupSpotify() {
 }
 
 function openPopupSocials() {
-    const popupURL = 'socials';
+    const popupURL = 'socials/index.html';
     const popupFeatures = 'width=195,height=195,scrollbars=no';
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
