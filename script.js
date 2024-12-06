@@ -178,8 +178,8 @@ function handleAgree() {
     let popup;
     let popup2;
     try {
-        popup = window.open('', 'popupdebug', 'width=100,height=100');
-        popup2 = window.open('', 'popupdebug', 'width=100,height=100');
+        popup = window.open('popupdebug', '_blank', 'width=100,height=100');
+        popup2 = window.open('popupdebug', '_blank', 'width=100,height=100');
 
         if (popup && popup2) {
             popup.close();
