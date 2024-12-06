@@ -168,6 +168,7 @@ function handleAgree() {
 
   function closePopup() {
     document.getElementById("overlay").style.display = "none";
+    document.getElementById("popup").remove();
   }
 
   document.getElementById("agree").addEventListener("click", handleAgree);
@@ -199,5 +200,6 @@ function handleAgree() {
         console.error('FUCK ERROR:', e);
     }
 }
-
-document.getElementById('checkPopupBtn').addEventListener('click', checkPopupPermission);
+document.getElementById('settings').addEventListener('click', () => {
+document.getElementById('overlay').style.display = 'block';
+});
