@@ -145,3 +145,68 @@ body { background-color: black }
         transform: rotate(360deg);
     }
 }
+
+/* REQUEST POP UP PERMS */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  #popup {
+    position: fixed;
+    width: 290px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.522);
+    color: rgb(0, 0, 0);
+    border-radius: 3px;
+    text-align: center;
+    font-size: 16px;
+    background-image: url("images/alert.png");
+    box-shadow: 0 40px 8px rgba(0, 0, 0, 0.2);
+    z-index: 11;
+  }
+
+  #popup p {
+    position: relative;
+    top: 30px;
+    left: 10px;
+    line-height: 0.9;
+}
+
+  #popup button {
+    position: relative;
+    top: 30px;
+    margin: 5px;
+    padding: 4px 20px;
+    font-family: 'XPFont', Arial, sans-serif;
+    border: 1px, solid, black;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px;
+  }
+
+  #popup button:hover {
+    box-shadow: 0 1px 3px;
+    background-color: #F1F1EC;
+    border: 1px, solid, transparent;
+    border-image: linear-gradient(#CEE7FF, #6984EE) 1;
+    box-shadow:0 0 0 1px #003C74, 0 1px 3px;;
+  }
+
+  #agree {
+    background-color: #ECE9D8;
+    color: rgb(0, 0, 0);
+  }
+
+  #close {
+    background-color: #ECE9D8;
+    color: rgb(0, 0, 0);
+  }

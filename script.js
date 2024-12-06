@@ -42,7 +42,7 @@ function openPopupSpotify() {
 
 function openPopupSocials() {
     const popupURL = 'socials/index.html';
-    const popupWidth = 195;
+    const popupWidth = 190;
     const popupHeight = 250; // WHAT THE FUCK
     const screenWidth = window.screen.width;
     const screenHeight = window.screen.height;
@@ -155,3 +155,47 @@ async function checkPassword() {
         container.style.backgroundImage = initialBackgroundImage;
     }
 }
+
+//POPUPS
+
+function handleAgree() {
+    checkPopupPermission();
+  }
+
+  function handleClose() {
+    closePopup();
+  }
+
+  function closePopup() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  document.getElementById("agree").addEventListener("click", handleAgree);
+  document.getElementById("close").addEventListener("click", handleClose);
+
+
+  function checkPopupPermission() {
+    let popup;
+    let popup2;
+    try {
+        popup = window.open('', 'popupdebug', 'width=100,height=100');
+        popup2 = window.open('', 'popupdebug', 'width=100,height=100');
+
+        if (popup && popup2) {
+            popup.close();
+            popup2.close();
+            console.log('enabled');
+            closePopup();
+        } else {
+            console.log('need to enable');
+            popup.close(); //making sure its closed
+            document.getElementById('popupmessage').innerHTML = "your browser should've just prompted you<br>with a <b>[ pop-up blocked ]</b> message around<br> your browser's toolbar!<br><br>please allow permissions then press the<br>check permissions button!";
+            document.getElementById('agree').innerHTML = "check permissions"
+            document.getElementById("close").remove();
+        }
+    } catch (e) {
+        console.error('FUCK ERROR:', e);
+    }
+}
+
+document.getElementById('checkPopupBtn').addEventListener('click', checkPopupPermission);
