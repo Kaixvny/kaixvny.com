@@ -35,7 +35,6 @@ function openPopupAboutMe() {
         window.open(popupURL, popupName, popupFeatures);
     } else {
         window.open(popupURL, '_blank').focus();
-        alert('debug')
     }
 }
 
