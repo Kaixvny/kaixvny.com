@@ -182,10 +182,12 @@ function handleAgree() {
         popup2 = window.open('popupdebug/index.html', '_blank', 'width=100,height=100');
 
         if (popup && popup2) {
+            setTimeout(() => {
             popup2.close();
             popup.close();
             console.log('enabled');
             closePopup();
+        }, 1000);
         } else {
             console.log('need to enable');
             popup.close(); //making sure its closed
