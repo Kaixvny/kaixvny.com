@@ -1,5 +1,7 @@
 const container = document.getElementById('container');
 const initialBackgroundImage = container.style.backgroundImage;
+//SETTINGS
+let popupMode = 'false';
 
 function openParappa() {
     window.location.href = "https://parappa.kaixvny.com/";
@@ -26,10 +28,15 @@ backgroundMusic.volume = 0.1;
 
 function openPopupAboutMe() {
     const popupURL = 'aboutme';
-    const popupName = 'About Me!!!';
-    const popupFeatures = 'width=550,height=600,scrollbars=no';
+        if (popupMode === 'true') {
+        const popupName = 'About Me!!!';
+        const popupFeatures = 'width=550,height=600,scrollbars=no';
 
-    window.open(popupURL, popupName, popupFeatures);
+        window.open(popupURL, popupName, popupFeatures);
+    } else {
+        window.open(popupURL, '_blank').focus();
+        alert('debug')
+    }
 }
 
 function openPopupSpotify() {
