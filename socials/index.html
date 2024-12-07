@@ -13,11 +13,17 @@
             justify-content: center;
             align-items: center;
             background-color: #0a388100;
-            overflow: hidden;
+            scrollbar-width: none; 
         }
 
         body {
             background-color: #0a3881;
+            
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
         }
 
         .container {
@@ -25,6 +31,8 @@
             height: 195px;
             position: relative;
             justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 0 240px #439cfe;
         }
 
         .background {
@@ -37,6 +45,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            
         }
 
         .social {
@@ -50,7 +59,6 @@
             left: 50%;
             transform: translate(-50%, -50%);
             cursor: pointer;
-            
         }
 
         .social:hover {

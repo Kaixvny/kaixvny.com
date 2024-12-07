@@ -1,7 +1,7 @@
 const container = document.getElementById('container');
 const initialBackgroundImage = container.style.backgroundImage;
 //SETTINGS
-let popupMode = 'false';
+let popupMode = 'true';
 
 function openParappa() {
     window.location.href = "https://parappa.kaixvny.com/";
@@ -40,87 +40,100 @@ function openPopupAboutMe() {
 
 function openPopupSpotify() {
     const popupURL = 'spotify';
-    const popupName = 'Spotify';
-    const popupFeatures = 'width=460,height=195,scrollbars=no,left=280,top=210';
+        if (popupMode === 'true') {
+        const popupName = 'Spotify';
+        const popupFeatures = 'width=460,height=195,scrollbars=no,left=280,top=210';
 
-    window.open(popupURL, popupName, popupFeatures);
+        window.open(popupURL, popupName, popupFeatures);
+    } else {
+        window.open(popupURL, '_blank').focus();
+    }
 }
 
 function openPopupSocials() {
     const popupURL = 'socials/index.html';
-    const popupWidth = 190;
-    const popupHeight = 250; // WHAT THE FUCK
-    const screenWidth = window.screen.width;
-    const screenHeight = window.screen.height;
-    const centerX = screenWidth / 2;
-    const centerY = screenHeight / 2;
-    const offsetPos = 150;
-    const floatDistance = 5;
-    const floatSpeed = 20;
+    if (popupMode === 'true') {
+        const popupWidth = 190;
+        const popupHeight = 250; // WHAT THE FUCK
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        const centerX = screenWidth / 2;
+        const centerY = screenHeight / 2;
+        const offsetPos = 150;
+        const floatDistance = 5;
+        const floatSpeed = 20;
 
-    const positions = {
-        top: { x: centerX - popupWidth / 2, y: centerY - popupHeight - offsetPos },
-        bottom: { x: centerX - popupWidth / 2, y: centerY + offsetPos },
-        left: { x: centerX - popupWidth - offsetPos, y: centerY - popupHeight / 2 },
-        right: { x: centerX + offsetPos, y: centerY - popupHeight / 2 }
-    };
+        const positions = {
+            top: { x: centerX - popupWidth / 2, y: centerY - popupHeight - offsetPos },
+            bottom: { x: centerX - popupWidth / 2, y: centerY + offsetPos },
+            left: { x: centerX - popupWidth - offsetPos, y: centerY - popupHeight / 2 },
+            right: { x: centerX + offsetPos, y: centerY - popupHeight / 2 }
+        };
 
-    const popupFeatures = (x, y) =>
-        `width=${popupWidth},height=${popupHeight},scrollbars=no,resizable=no,left=${x},top=${y}`;
+        const popupFeatures = (x, y) =>
+            `width=${popupWidth},height=${popupHeight},scrollbars=no,resizable=no,left=${x},top=${y}`;
 
-    const popups = [
-        window.open(`${popupURL}?social=twitter`, 'social1', popupFeatures(positions.top.x, positions.top.y)),
-        window.open(`${popupURL}?social=youtube`, 'social2', popupFeatures(positions.bottom.x, positions.bottom.y)),
-        window.open(`${popupURL}?social=github`, 'social3', popupFeatures(positions.left.x, positions.left.y)),
-        window.open(`${popupURL}?social=bluesky`, 'social4', popupFeatures(positions.right.x, positions.right.y))
-    ];
+        const popups = [
+            window.open(`${popupURL}?social=twitter`, 'social1', popupFeatures(positions.top.x, positions.top.y)),
+            window.open(`${popupURL}?social=youtube`, 'social2', popupFeatures(positions.bottom.x, positions.bottom.y)),
+            window.open(`${popupURL}?social=github`, 'social3', popupFeatures(positions.left.x, positions.left.y)),
+            window.open(`${popupURL}?social=bluesky`, 'social4', popupFeatures(positions.right.x, positions.right.y))
+        ];
 
-    let startTime = Date.now();
+        let startTime = Date.now();
 
-    const floatInterval = setInterval(() => {
-        const elapsedTime = Date.now() - startTime;
-        const angle = (elapsedTime / 1000) * Math.PI;
+        const floatInterval = setInterval(() => {
+            const elapsedTime = Date.now() - startTime;
+            const angle = (elapsedTime / 1000) * Math.PI;
 
-        popups.forEach((popup, i) => {
-            if (popup && !popup.closed) {
-                const sineOffset = Math.sin(angle + (i * Math.PI) / 2) * floatDistance;
-                const basePosition = positions[Object.keys(positions)[i]];
-                const newTop = Math.round(basePosition.y + sineOffset);
-                const newLeft = Math.round(basePosition.x);
+            popups.forEach((popup, i) => {
+                if (popup && !popup.closed) {
+                    const sineOffset = Math.sin(angle + (i * Math.PI) / 2) * floatDistance;
+                    const basePosition = positions[Object.keys(positions)[i]];
+                    const newTop = Math.round(basePosition.y + sineOffset);
+                    const newLeft = Math.round(basePosition.x);
 
-                try {
-                    popup.resizeTo(popupWidth + 20, popupHeight + 20); // what the fuck
-                    popup.moveTo(newLeft, newTop);
-                } catch (error) {
-                    console.warn('FUCK');
+                    try {
+                        popup.resizeTo(popupWidth + 20, popupHeight + 20); // what the fuck
+                        popup.moveTo(newLeft, newTop);
+                    } catch (error) {
+                        console.warn('FUCK');
+                    }
                 }
-            }
-        });
-
-        if (popups.some(popup => popup && popup.closed)) {
-            popups.forEach(popup => {
-                if (popup && !popup.closed) popup.close();
             });
-            clearInterval(floatInterval);
-        }
-    }, floatSpeed);
+
+            if (popups.some(popup => popup && popup.closed)) {
+                popups.forEach(popup => {
+                    if (popup && !popup.closed) popup.close();
+                });
+                clearInterval(floatInterval);
+            }
+        }, floatSpeed);
+    } else {
+        alert("no popup mode for this is not supported yet")
+    }
 }
+
 
 
 function openPopupStart() {
     const popupURL = 'startmenu';
-    const popupName = 'start menu';
-    const popupFeatures = 'width=380,height=478,scrollbars=no';
+    if (popupMode === 'true') {
+        const popupName = 'start menu';
+        const popupFeatures = 'width=380,height=478,scrollbars=no';
 
-    const startPopupWindow = window.open(popupURL, popupName, popupFeatures);
-    document.getElementById('start-button').style.backgroundImage = 'url("images/startclick.png")';
+        const startPopupWindow = window.open(popupURL, popupName, popupFeatures);
+        document.getElementById('start-button').style.backgroundImage = 'url("images/startclick.png")';
 
-    const checkPopupClosed = setInterval(() => {
-        if (startPopupWindow.closed) {
-            document.getElementById('start-button').style.backgroundImage = 'url("images/start.png")';
-            clearInterval(checkPopupClosed);
-        }
+        const checkPopupClosed = setInterval(() => {
+            if (startPopupWindow.closed) {
+                document.getElementById('start-button').style.backgroundImage = 'url("images/start.png")';
+                clearInterval(checkPopupClosed);
+            }
     }, 1000);
+    } else {
+        window.open(popupURL, '_blank').focus();
+    }
 }
 
 function openRandomLink() {
@@ -169,6 +182,7 @@ function handleAgree() {
   }
 
   function handleClose() {
+    popupMode = 'false';
     closePopup();
   }
 
@@ -193,6 +207,7 @@ function handleAgree() {
             popup2.close();
             popup.close();
             console.log('enabled');
+            popupMode = 'true';
             closePopup();
         }, 1000);
         } else {
