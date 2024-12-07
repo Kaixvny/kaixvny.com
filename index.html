@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>welcome...</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!--PRELOAD-->
+    <link rel="preload" href="images/home.jpg" as="image">
+    <link rel="preload" href="images/starthover.png" as="image">
+    <link rel="preload" href="images/startclick.png" as="image">
 </head>
 <body>
     <div class="diamond-pattern"></div>
     <div class="container" id="container">
+        <div class="crt"></div>
         <div class="icon-container" onclick="playSelectSound(); openPopupAboutMe()">
             <div class="icon icon1"></div>
             <div class="icon-text">About Me</div>
@@ -53,12 +58,10 @@
         <source src="sounds/whitenoise.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <link rel="preload" href="images/home.jpg" as="image">
-    <link rel="preload" href="images/starthover.png" as="image">
-    <link rel="preload" href="images/startclick.png" as="image">
     <div id="overlay">
         <div id="popup">
         <div class="close-container" onclick="closePopup()"></div>
+        <div class="crt"></div>
           <p id="popupmessage">hello! my website makes use a lot of your<br>browser's built-in pop-up feature.<br><br>if you want to fully to experience my work,<br>please enable pop-ups via the button below.<br><br>if not, dont worry! you may also press the<br>decline button to be put into no pop-up mode!</p>
           <button id="agree">allow</button>
           <button id="close">decline</button>
