@@ -165,7 +165,7 @@ async function checkPassword() {
         //SILLY SHIT
         const thump = new Audio('sounds/thesound.mp3');
         thump.play();
-        const darkred = "#120303";
+        const darkred = "#080000";
         const diamond = document.querySelector(".diamond-pattern");
         container.style.backgroundImage = "url('images/home.jpg')";
         diamond.style.backgroundImage = `
@@ -219,7 +219,7 @@ async function checkPassword() {
           prevX = currentX;
         });
 
-        container.style.boxShadow = '0 0 240px rgba(186, 101, 101, 0.4)'
+        container.style.boxShadow = '0 0 240px rgba(196, 196, 196, 0.4)'
     } else {
         alert('> WRONG PASSWORD');
     }
