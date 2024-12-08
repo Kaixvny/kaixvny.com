@@ -63,7 +63,7 @@ body { background-color: black }
     margin-top: 5px;
 }
 
-.icon1 { background-image: url('images/computer.png'); }
+.icon1 { background-image: url('images/computer.png'); filter: grayscale(0); }
 .icon2 { background-image: url('images/folder.png'); }
 .icon3 { background-image: url('images/msn.png'); }
 .icon4 { background-image: url('images/music.png'); }
@@ -99,6 +99,7 @@ body { background-color: black }
     align-items: center;
     padding: 0 10px;
     box-sizing: border-box;
+    filter: grayscale(0)
 }
 
 .start-button {
@@ -110,6 +111,7 @@ body { background-color: black }
     transition: background-image 0.3s;
     position: absolute;
     left: 0;
+    filter: grayscale(0)
 }
 
 .start-button:hover {
@@ -223,7 +225,7 @@ body { background-color: black }
     color: rgb(0, 0, 0);
   }
 
-/* .crt {
+ .crt {
   content: " ";
   display: block;
   position: fixed;
@@ -235,4 +237,4 @@ body { background-color: black }
   z-index: 2;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
-} */
+}

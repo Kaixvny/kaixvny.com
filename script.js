@@ -1,5 +1,4 @@
 const container = document.getElementById('container');
-const initialBackgroundImage = container.style.backgroundImage;
 //SETTINGS
 let popupMode = 'true';
 
@@ -154,25 +153,80 @@ function openRandomLink() {
     window.location.href = links[randomIndex];
 }
 
-function changeContainerImage() {
-    container.style.backgroundImage = "url('images/home.jpg')";
-}
-
 function handleIconSecretClick() {
-    changeContainerImage();
     setTimeout(checkPassword, 1);
 }
 
 async function checkPassword() {
-    const password = prompt('Enter password:');
-    const correctPassword = 'HOME';
+    const password = prompt('> PASSWORD:');
+    const correctPassword = 'HOME'; // kill your shelf
 
     if (password === correctPassword) {
-        alert('woohoo');
+        //SILLY SHIT
+        const thump = new Audio('sounds/thesound.mp3');
+        thump.play();
+        const darkred = "#120303";
+        const diamond = document.querySelector(".diamond-pattern");
+        container.style.backgroundImage = "url('images/home.jpg')";
+        diamond.style.backgroundImage = `
+        linear-gradient(45deg, ${darkred} 25%, transparent 25%, transparent 75%, ${darkred} 75%, ${darkred}),
+        linear-gradient(45deg, ${darkred} 25%, transparent 25%, transparent 75%, ${darkred} 75%, ${darkred})`
+
+        const taskbar = document.querySelector(".taskbar");
+        const start = document.querySelector(".start-button");
+        const icon1 = document.querySelector(".icon1");
+        taskbar.style.filter = "grayscale(1)";
+        start.style.filter = "grayscale(1)";
+        icon1.style.filter = "grayscale(1)";
+        document.querySelectorAll("#\\32-1, #\\32, #\\33, #\\34, #\\35, #parappa, #secret").forEach(element => element.remove());
+        icon1.style.backgroundImage = "url('images/console.png')";
+        icon1.onclick = function () {
+            playSelectSound();
+            cmd();
+        };
+        const iconContainer = document.getElementById("1");
+        const iconText = iconContainer.querySelector(".icon-text");
+        iconText.textContent = "cmd.exe";
+
+        const static = new Audio('sounds/static.mp3');
+        static.loop = true;
+        static.play();
+        
+        const leftSound = new Audio('sounds/mouseleft.mp3');
+        const rightSound = new Audio('sounds/mouseright.mp3');
+    
+        let prevX = 0;
+        let canPlay = true;
+    
+        const resetPlayAbility = () => {
+          canPlay = true;
+        };
+    
+        window.addEventListener('mousemove', (event) => {
+          const currentX = event.clientX;
+    
+          if (canPlay) {
+            if (currentX < prevX) {
+              leftSound.play();
+              console.log("left")
+            } else if (currentX > prevX) {
+              rightSound.play();
+            }
+            canPlay = false;
+            setTimeout(resetPlayAbility, 200);
+          }
+
+          prevX = currentX;
+        });
+
+        container.style.boxShadow = '0 0 240px rgba(186, 101, 101, 0.4)'
     } else {
-        alert('denied.');
-        container.style.backgroundImage = initialBackgroundImage;
+        alert('> WRONG PASSWORD');
     }
+}
+
+function cmd() {
+    alert("come back later loser im not done")
 }
 
 //POPUPS

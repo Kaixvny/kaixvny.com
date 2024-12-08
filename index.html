@@ -15,35 +15,35 @@
     <div class="diamond-pattern"></div>
     <div class="container" id="container">
         <div class="crt"></div>
-        <div class="icon-container" onclick="playSelectSound(); openPopupAboutMe()">
+        <div class="icon-container" id="1" onclick="playSelectSound(); openPopupAboutMe()">
             <div class="icon icon1"></div>
             <div class="icon-text">About Me</div>
         </div>
-        <div class="icon-container" onclick="alert('work in progress!')">
+        <div class="icon-container" id="2" onclick="alert('work in progress!')">
             <div class="icon icon2"></div>
             <div class="icon-text">Projects</div>
         </div>
-        <div class="icon-container" onclick="playSelectSound(); openPopupSocials()">
+        <div class="icon-container" id="3" onclick="playSelectSound(); openPopupSocials()">
             <div class="icon icon3"></div>
             <div class="icon-text">Social</div>
         </div>
-        <div class="icon-container" onclick="playSelectSound(); openPopupSpotify()">
+        <div class="icon-container" id="4" onclick="playSelectSound(); openPopupSpotify()">
             <div class="icon icon4"></div>
             <div class="icon-text">Music</div>
         </div>
-        <div class="icon-container" onclick="alert('work in progress!')">
+        <div class="icon-container" id="5" onclick="alert('work in progress!')">
             <div class="icon icon5"></div>
             <div class="icon-text">Other Sites</div>
         </div>
-        <div class="iconrow2-container" onclick="openRandomLink()">
+        <div class="iconrow2-container" id="2-1" onclick="openRandomLink()">
             <div class="iconrow2 iconrow21"></div>
             <div class="icon-text">Trash</div>
         </div>
-        <div class="iconsecret-container" onclick="openParappa()">
+        <div class="iconsecret-container" id="parappa" onclick="openParappa()">
             <div class="iconparappa iconsecret"></div>
             <div class="iconparappa-text">Parappa</div>
         </div>
-        <div class="iconsecret-container" onclick="handleIconSecretClick()">
+        <div class="iconsecret-container" id="secret" onclick="handleIconSecretClick()">
             <div class="iconsecret iconsecret"></div>
             <div class="iconsecret-text">Secret</div>
         </div>
@@ -60,9 +60,18 @@
     </audio>
     <div id="overlay">
         <div id="popup">
-        <div class="close-container" onclick="closePopup()"></div>
+        <div class="close-container" onclick="handleClose()"></div>
         <div class="crt"></div>
-          <p id="popupmessage">hello! my website makes use a lot of your<br>browser's built-in pop-up feature.<br><br>if you want to fully to experience my work,<br>please enable pop-ups via the button below.<br><br>if not, dont worry! you may also press the<br>decline button to be put into no pop-up mode!</p>
+        <p id="popupmessage">
+            hello! my website makes use a lot of your<br>
+            browser's built-in pop-up feature.<br>
+            <br>
+            if you want to fully to experience my work,<br>
+            please enable pop-ups via the button below.<br>
+            <br>
+            if not, dont worry! you may also press the<br>
+            decline button to be put into no pop-up mode!
+        </p>
           <button id="agree">allow</button>
           <button id="close">decline</button>
         </div>
