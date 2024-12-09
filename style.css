@@ -12,9 +12,15 @@ body, html {
     align-items: center;
     background-color: #00000000;
     font-family: 'XPFont', Arial, sans-serif;
+    scrollbar-width: 0;
 }
 
-body { background-color: black }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body { background-color: black; overflow: hidden;}
 
 .container {
     width: 400px;
@@ -237,4 +243,26 @@ body { background-color: black }
   z-index: 2;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
+}
+
+/*STATIC*/
+
+.fuzzy-overlay {
+    position: absolute;
+    inset: -200%;
+    background-image: url('images/noise.png');
+    opacity: 20%;
+    z-index: 0;
+    pointer-events: none;
+    animation: shift 0.2s linear infinite both;
+}
+
+@keyframes shift {
+    0% {
+        transform: translateX(10%) translateY(10%);
+    }
+
+    100% {
+        transform: translateX(-10%) translateY(-10%);
+    }
 }

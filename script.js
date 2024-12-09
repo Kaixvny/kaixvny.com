@@ -180,11 +180,11 @@ async function checkPassword() {
         icon1.style.filter = "grayscale(1)";
         document.querySelectorAll("#\\32-1, #\\32, #\\33, #\\34, #\\35, #parappa, #secret").forEach(element => element.remove());
         icon1.style.backgroundImage = "url('images/console.png')";
-        icon1.onclick = function () {
+        const iconContainer = document.getElementById("1");
+        iconContainer.onclick = function () {
             playSelectSound();
             cmd();
         };
-        const iconContainer = document.getElementById("1");
         const iconText = iconContainer.querySelector(".icon-text");
         iconText.textContent = "cmd.exe";
 
@@ -220,13 +220,22 @@ async function checkPassword() {
         });
 
         container.style.boxShadow = '0 0 240px rgba(196, 196, 196, 0.4)'
+        document.getElementById("static").className = "fuzzy-overlay"
     } else {
         alert('> WRONG PASSWORD');
     }
 }
 
 function cmd() {
-    alert("come back later loser im not done")
+    const popupURL = 'console';
+    if (popupMode === 'true') {
+    const popupName = "C:\WINDOWS\system32\cmd.exe";
+    const popupFeatures = 'width=640,height=300,scrollbars=no,left=280,top=210';
+
+    window.open(popupURL, popupName, popupFeatures);
+} else {
+    window.open(popupURL, '_blank').focus();
+}
 }
 
 //POPUPS
