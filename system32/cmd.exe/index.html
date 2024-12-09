@@ -180,7 +180,7 @@
         function clsClear() {
             wait(0.1)
             document.querySelectorAll('.output').forEach(div => {
-            if (div.innerHTML.trim() === "C:\\WINDOWS\\system32&gt; cls") {
+            if (div.innerHTML.trim() === "C:\\WINDOWS\\system32&gt;cls") {
                 div.remove();
             }
         });
@@ -193,9 +193,9 @@
                 const [command, ...args] = input.split(" ");
                 if (commands[command.toLowerCase()]) {
                     const result = commands[command.toLowerCase()](args);
-                    outputDiv.innerHTML = `<div class="output">C:\\WINDOWS\\system32&gt; ${input}</div><div class="output">${result}</div>`;
+                    outputDiv.innerHTML = `<div class="output">C:\\WINDOWS\\system32&gt;${input}</div><div class="output">${result}</div>`;
                 } else {
-                    outputDiv.innerHTML = `<div class="output">C:\\WINDOWS\\system32&gt; ${input}</div><div class="output">'${command}' is not recognized as an internal or external command, operable program or batch file.</div>`;
+                    outputDiv.innerHTML = `<div class="output">C:\\WINDOWS\\system32&gt;${input}</div><div class="output">'${command}' is not recognized as an internal or external command, operable program or batch file.</div>`;
                 }
                 content.insertBefore(outputDiv, currentInputLine);
                 typedCommand.textContent = "";
