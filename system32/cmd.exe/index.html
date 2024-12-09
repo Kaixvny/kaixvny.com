@@ -62,7 +62,7 @@
         .cursor {
             display: inline-block;
             width: 8px;
-            height: 2px;
+            height: 3px;
             background-color: #bfbfbf;
             animation: blink 1s steps(2, start) infinite;
             vertical-align: text-bottom;
@@ -157,13 +157,27 @@
         const commands = {
             help: () => "HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides Help information for Windows commands.<br>CLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears the screen.<br>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the date.<br>ECHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays messages.",
             cls: () => {
-                content.innerHTML = '<div class="input-line" id="current-input-line"><span>C:\\WINDOWS\\system32&gt; </span><span id="typed-command"></span><span class="cursor"></span></div>';
+                content.innerHTML = ""; 
+                typedCommand.textContent = ""; 
+                content.appendChild(currentInputLine); 
                 startLine.innerHTML = "";
-                return ""; //fix this killing itself
+                typedCommand.focus();
+                clsClear();
+                return ""; 
             },
+
             date: () => new Date().toString(),
             echo: (args) => args.join("<br>"),
         };
+
+        function clsClear() {
+            wait(0.1)
+            document.querySelectorAll('.output').forEach(div => {
+            if (div.innerHTML.trim() === "C:\\WINDOWS\\system32&gt; cls") {
+                div.remove();
+            }
+        });
+        }
 
         document.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
