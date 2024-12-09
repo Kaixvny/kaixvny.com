@@ -136,7 +136,7 @@
         function keyboardSound() {
             const pitchVariation = 1 + (Math.random() * 0.01 - 0.005); 
             keyPressSound.playbackRate = pitchVariation;
-            keyPressSound.play();
+            keyPressSound.cloneNode(true).play();
         }
 
         const commands = {
