@@ -140,7 +140,7 @@
 
         const commands = {
             help: () => "HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides Help information for Windows commands.<br>CLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears the screen.<br>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the date.<br>ECHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays messages.",
-            clear: () => {
+            cls: () => {
                 content.innerHTML = '<div class="input-line" id="current-input-line"><span>C:\\WINDOWS\\system32&gt; </span><span id="typed-command"></span><span class="cursor"></span></div>';
                 return ""; //fix this killing itself
             },
@@ -153,8 +153,8 @@
                 const input = typedCommand.textContent.trim();
                 const outputDiv = document.createElement("div");
                 const [command, ...args] = input.split(" ");
-                if (commands[command]) {
-                    const result = commands[command](args);
+                if (commands[command.toLowerCase()]) {
+                    const result = commands[command.toLowerCase()](args);
                     outputDiv.innerHTML = `<div class="output">C:\\WINDOWS\\system32&gt; ${input}</div><div class="output">${result}</div>`;
                 } else {
                     outputDiv.innerHTML = `<div class="output">C:\\WINDOWS\\system32&gt; ${input}</div><div class="output">'${command}' is not recognized as an internal or external command, operable program or batch file.</div>`;
