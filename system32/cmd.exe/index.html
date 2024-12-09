@@ -29,8 +29,21 @@
 
         body { background-color: #000;  overflow: hidden; }
 
+        .background {
+            width: 669px;
+            height: 338px;
+            position: absolute;
+            background-image: url('../../images/cmdborder.png');
+            background-color: #ff0000;
+            color: #bfbfbf;
+            overflow: hidden;
+            z-index: 1;
+            filter: grayscale(1);
+            transform: translateY(-13px) translateX(0px);
+        }
+
         .container {
-            width: 640px;
+            width: 660px;
             height: 300px;
             position: relative;
             box-shadow: 0 0 240px rgba(196, 196, 196, 0.2);
@@ -38,7 +51,8 @@
             color: #bfbfbf;
             overflow-x: hidden;
             overflow-y: scroll;
-            padding: 5px;
+
+            z-index: 2;
         }
         .input-line {
             display: flex;
@@ -114,6 +128,7 @@
 <body>
     <div class="diamond-pattern"></div>
     <div class="fuzzy-overlay"></div>
+    <div class="background"></div>
     <div class="container" id="terminal">
         <p id="start">Microsoft Windows XP [Version 5.1.2600]<br>(C) Copyright 1985-2001 Microsoft Corp.<br><br></p>
         <div id="content">

@@ -230,7 +230,7 @@ function cmd() {
     const popupURL = 'system32/cmd.exe';
     if (popupMode === 'true') {
     const popupName = "C:\WINDOWS\system32\cmd.exe";
-    const popupFeatures = 'width=640,height=300,scrollbars=no,left=280,top=210';
+    const popupFeatures = 'width=660,height=300,scrollbars=no,left=280,top=210';
 
     window.open(popupURL, popupName, popupFeatures);
 } else {
