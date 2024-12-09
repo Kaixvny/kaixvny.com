@@ -129,6 +129,13 @@
         const content = document.getElementById("content");
         const currentInputLine = document.getElementById("current-input-line");
         const typedCommand = document.getElementById("typed-command");
+        const keyPressSound = new Audio('../sounds/keyboard.mp3');
+
+        function keyboardSound() {
+            const pitchVariation = 1 + (Math.random() * 0.01 - 0.005); 
+            keyPressSound.playbackRate = pitchVariation;
+            keyPressSound.play();
+        }
 
         const commands = {
             help: () => "Available commands: help, clear, date, echo [message]",
@@ -161,8 +168,9 @@
             } else if (e.key.length === 1) {
                 typedCommand.textContent += e.key;
             }
+            keyboardSound();
         });
-
+        
         document.addEventListener("click", () => {
             typedCommand.focus();
         });
