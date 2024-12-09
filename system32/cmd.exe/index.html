@@ -157,7 +157,7 @@
         const commands = {
             help: () => "HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides Help information for Windows commands.<br>CLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears the screen.<br>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the date.<br>ECHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays messages.",
             cls: () => {
-                content.innerHTML = ""; 
+                content.innerHTML = "<br>"; 
                 typedCommand.textContent = ""; 
                 content.appendChild(currentInputLine); 
                 startLine.innerHTML = "";
