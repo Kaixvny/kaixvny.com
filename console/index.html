@@ -139,7 +139,7 @@
         }
 
         const commands = {
-            help: () => "Available commands: help, clear, date, echo [message]",
+            help: () => "HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides Help information for Windows commands.<br>CLS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears the screen.<br>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the date.<br>ECHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays messages.",
             clear: () => {
                 content.innerHTML = '<div class="input-line" id="current-input-line"><span>C:\\WINDOWS\\system32&gt; </span><span id="typed-command"></span><span class="cursor"></span></div>';
                 return ""; //fix this killing itself
