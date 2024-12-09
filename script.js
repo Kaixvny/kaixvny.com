@@ -253,10 +253,6 @@ function handleAgree() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("popup").remove();
   }
-  
-    if (popupMode = 'true' || 'false'){
-        closePopup();
-    }
 
 
   document.getElementById("agree").addEventListener("click", handleAgree);
@@ -294,9 +290,13 @@ document.getElementById('settings').addEventListener('click', () => {
 document.getElementById('overlay').style.display = 'block';
 });
 
+const popupSetting = localStorage.getItem('popupMode');
+if (popupSetting === 'true' || popupSetting === 'false') {
+    closePopup();
+}
+
 // SETTINGS
 function loadSettings() {
-    const popupSetting = localStorage.getItem('popupMode');
     popupMode = popupSetting;
 }
 
