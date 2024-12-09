@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C:\WINDOWS\system32\cmd.exe</title>
-    <link rel="icon" type="image/png" href="../images/console.png">
+    <link rel="icon" type="image/png" href="../../images/console.png">
     <style>
         @font-face {
             font-family: 'console';
-            src: url('../fonts/console.ttf') format('truetype');
+            src: url('../../fonts/console.ttf') format('truetype');
         }
         body, html {
             height: 100%;
@@ -92,7 +92,7 @@
         .fuzzy-overlay {
             position: absolute;
             inset: -200%;
-            background-image: url('../images/noise.png');
+            background-image: url('../../images/noise.png');
             opacity: 20%;
             z-index: 0;
             pointer-events: none;
@@ -130,7 +130,7 @@
         const content = document.getElementById("content");
         const currentInputLine = document.getElementById("current-input-line");
         const typedCommand = document.getElementById("typed-command");
-        const keyPressSound = new Audio('../sounds/keyboard.mp3');
+        const keyPressSound = new Audio('../../sounds/keyboard.mp3');
         const startLine = document.getElementById("start");
 
         function keyboardSound() {

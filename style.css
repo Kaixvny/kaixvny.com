@@ -40,7 +40,7 @@ body { background-color: black; overflow: hidden;}
 
 .icon-container, .iconrow2-container, .iconsecret-container {
     display: flex;
-    height: 100px;
+    height: 60px;
     flex-direction: column;
     align-items: center;
     margin: 14px;
@@ -77,7 +77,7 @@ body { background-color: black; overflow: hidden;}
 .iconrow21 { background-image: url('images/trash.png'); }
 .iconsecret { background-image: url('images/lock.png'); }
 .iconparappa { background-image: url('images/parappa.png'); }
-.settings { 
+.settings {
     background-image: url('images/settings.png'); 
     position: absolute;
     bottom: 15px;
