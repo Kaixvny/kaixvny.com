@@ -1,6 +1,6 @@
 const container = document.getElementById('container');
 //SETTINGS
-let popupMode = 'true';
+let popupMode = 'null';
 
 function openParappa() {
     window.location.href = "https://parappa.kaixvny.com/";
@@ -239,12 +239,12 @@ function cmd() {
 }
 
 //POPUPS
-
 function handleAgree() {
     checkPopupPermission();
   }
 
   function handleClose() {
+    localStorage.setItem('popupMode', false);
     popupMode = 'false';
     closePopup();
   }
@@ -253,6 +253,11 @@ function handleAgree() {
     document.getElementById("overlay").style.display = "none";
     document.getElementById("popup").remove();
   }
+  
+    if (popupMode = 'true' || 'false'){
+        closePopup();
+    }
+
 
   document.getElementById("agree").addEventListener("click", handleAgree);
   document.getElementById("close").addEventListener("click", handleClose);
@@ -270,6 +275,7 @@ function handleAgree() {
             popup2.close();
             popup.close();
             console.log('enabled');
+            localStorage.setItem('popupMode', true);
             popupMode = 'true';
             closePopup();
         }, 1000);
@@ -287,3 +293,11 @@ function handleAgree() {
 document.getElementById('settings').addEventListener('click', () => {
 document.getElementById('overlay').style.display = 'block';
 });
+
+// SETTINGS
+function loadSettings() {
+    const popupSetting = localStorage.getItem('popupMode');
+    popupMode = popupSetting;
+}
+
+window.onload = loadSettings;
