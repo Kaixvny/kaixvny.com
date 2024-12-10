@@ -13,6 +13,7 @@ body, html {
     background-color: #00000000;
     font-family: 'XPFont', Arial, sans-serif;
     scrollbar-width: 0;
+    cursor: url('../images/default_arrow.ico'), default;
 }
 
 html::-webkit-scrollbar,
@@ -44,7 +45,7 @@ body { background-color: black; overflow: hidden;}
     flex-direction: column;
     align-items: center;
     margin: 14px;
-    cursor: pointer;
+    cursor: url('../images/default_link.ico'), default;
 }
 
 .iconrow2-container {
@@ -91,7 +92,7 @@ body { background-color: black; overflow: hidden;}
 
 .settings:hover {
     animation: spin 1s cubic-bezier(0.1, 0.1, 0.1, 1) forwards;
-    cursor: pointer;
+    cursor: url('../images/default_link.ico'), default;
 }
 
 .taskbar {
@@ -113,7 +114,7 @@ body { background-color: black; overflow: hidden;}
     height: 100%;
     background-image: url('images/start.png');
     background-size: cover;
-    cursor: pointer;
+    cursor: url('../images/default_link.ico'), default;
     transition: background-image 0.3s;
     position: absolute;
     left: 0;
@@ -191,7 +192,7 @@ body { background-color: black; overflow: hidden;}
     right: 0;
     width: 35px;
     height: 35px;
-    cursor: pointer;
+    cursor: url('../images/default_link.ico'), default;
 }
 
   #popup p {
@@ -209,7 +210,7 @@ body { background-color: black; overflow: hidden;}
     font-family: 'XPFont', Arial, sans-serif;
     border: 1px, solid, black;
     border-radius: 2px;
-    cursor: pointer;
+    cursor: url('../images/default_link.ico'), default;
     box-shadow: 0 1px 3px;
   }
 
