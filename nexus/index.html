@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nexus</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        html {
+            scrollbar-width: 0;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        canvas {
+            image-rendering: pixelated;
+            width: 800px;
+            height: 600px;
+            outline: solid;
+            outline-width: 5px;
+            outline-color: rgba(255, 255, 255, 0.181);
+            box-shadow: 0 0 240px rgba(52, 52, 52, 0.4);
+        }
+
+        .crt {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .fuzzy-overlay {
+            position: absolute;
+            inset: -200%;
+            background-image: url('../images/noise.png');
+            opacity: 7%;
+            z-index: 0;
+            pointer-events: none;
+            animation: shift 0.2s linear infinite both;
+        }
+
+        @keyframes shift {
+            0% {
+                transform: translateX(10%) translateY(10%);
+            }
+
+            100% {
+                transform: translateX(-10%) translateY(-10%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fuzzy-overlay"></div>
+    <canvas id="gameCanvas" width="320" height="248"></canvas>
+    <div class="crt"></div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = false;
+
+        const madotsuki = {
+            x: 272,
+            y: 225,
+            width: 16,
+            height: 28,
+            speed: 0.65,
+            frame: 0,
+            isWalking: false,
+            direction: 'down',
+            lastDirection: 'down',
+            frameTimer: 0,
+            frameDelay: 200,
+            footstepCooldown: 299
+        };
+
+        const keys = {};
+
+        const background = new Image();
+        background.src = '../images/nexus.png';
+
+        const sprites = new Image();
+        sprites.src = '../images/madotsuki.png';
+
+        const camera = {
+            x: 0,
+            y: 0,
+            width: canvas.width,
+            height: canvas.height
+        };
+
+        const doors = [ // dont worry that theyre named it goes unused but it helps me (i totally could not have just used comments)
+            { x: 272, y: 50, width: 17, height: 30, name: "Bedroom Door", spriteSrc: '../images/doors/bedroom.png', url: "https://WWW.kaixvny.com" },
+            { x: 304, y: 100, width: 17, height: 30, name: "Numbers Door", spriteSrc: '../images/doors/numbers.png', url: "https://example.com/" },
+            { x: 368, y: 130, width: 17, height: 30, name: "Neon Door", spriteSrc: '../images/doors/neon.png', url: "https://example.com/" },
+            { x: 400, y: 194, width: 17, height: 30, name: "Shield Door", spriteSrc: '../images/doors/shield.png', url: "https://example.com/" },
+            { x: 400, y: 258, width: 17, height: 30, name: "Candle Door", spriteSrc: '../images/doors/candle.png', url: "https://example.com/" },
+            { x: 368, y: 321, width: 17, height: 30, name: "Eyeball Door", spriteSrc: '../images/doors/eyeball.png', url: "https://example.com/" },
+            { x: 304, y: 358, width: 17, height: 27, name: "Graffiti Door", spriteSrc: '../images/doors/graffiti.png', url: "https://example.com/" },
+            { x: 240, y: 354, width: 17, height: 30, name: "Mural Door", spriteSrc: '../images/doors/mural.png', url: "https://example.com/" },
+            { x: 176, y: 322, width: 17, height: 30, name: "Snow Door", spriteSrc: '../images/doors/snow.png', url: "https://example.com/" },
+            { x: 144, y: 262, width: 17, height: 27, name: "Dark Door", spriteSrc: '../images/doors/dark.png', url: "https://example.com/" },
+            { x: 144, y: 195, width: 17, height: 30, name: "Puddle Door", spriteSrc: '../images/doors/puddle.png', url: "https://example.com/" },
+            { x: 176, y: 130, width: 17, height: 30, name: "Block Door", spriteSrc: '../images/doors/block.png', url: "https://example.com/" },
+            { x: 240, y: 100, width: 17, height: 30, name: "Forest Door", spriteSrc: '../images/doors/forest.png', url: "https://example.com/" }
+        ];
+
+        //load thou spritesheet
+        doors.forEach(door => {
+            door.sprite = new Image();
+            door.sprite.src = door.spriteSrc;
+            door.currentFrame = 0;
+            door.frameDelay = 200;
+            door.frameTimer = 0;
+            door.isOpening = false;
+        });
+
+        window.addEventListener('keydown', (e) => { keys[e.key] = true; });
+        window.addEventListener('keyup', (e) => { keys[e.key] = false; });
+
+        // collision
+        function isCollidingWithClosedDoor(newX, newY) {
+            return doors.some(door => {
+                return (
+                    newX < door.x + door.width &&
+                    newX + madotsuki.width > door.x &&
+                    newY < door.y + door.height &&
+                    newY + madotsuki.height > door.y
+                );
+            });
+        }
+
+        function updateMadotsuki(deltaTime) {
+            madotsuki.isWalking = false;
+
+            let newX = madotsuki.x;
+            let newY = madotsuki.y;
+
+            if (keys['ArrowUp'] || keys['w']) {
+                newY -= madotsuki.speed;
+                madotsuki.isWalking = true;
+                madotsuki.direction = 'up';
+            }
+            if (keys['ArrowDown'] || keys['s']) {
+                newY += madotsuki.speed;
+                madotsuki.isWalking = true;
+                madotsuki.direction = 'down';
+            }
+            if (keys['ArrowLeft'] || keys['a']) {
+                newX -= madotsuki.speed;
+                madotsuki.isWalking = true;
+                madotsuki.direction = 'left';
+            }
+            if (keys['ArrowRight'] || keys['d']) {
+                newX += madotsuki.speed;
+                madotsuki.isWalking = true;
+                madotsuki.direction = 'right';
+            }
+
+            // collsion more
+            if (!isCollidingWithClosedDoor(newX, madotsuki.y)) {
+                madotsuki.x = newX;
+            }
+            if (!isCollidingWithClosedDoor(madotsuki.x, newY)) {
+                madotsuki.y = newY;
+            }
+            const footstepSound = new Audio('footsteps.wav'); 
+            // madotsuki walking
+            if (!madotsuki.isWalking) {
+                madotsuki.lastDirection = madotsuki.direction;
+                madotsuki.frame = 1;
+            } else {
+                madotsuki.frameTimer += deltaTime;
+                madotsuki.footstepCooldown = madotsuki.footstepCooldown || 0;
+                madotsuki.footstepCooldown += deltaTime;
+
+                if (madotsuki.footstepCooldown >= 300) {
+                    footstepSound.play();
+                    madotsuki.footstepCooldown = 0;
+                }
+                
+                if (madotsuki.frameTimer >= madotsuki.frameDelay) {
+                    madotsuki.frame = (madotsuki.frame + 1) % 4;
+                    madotsuki.frameTimer = 0;
+                }
+            }
+
+        }
+
+        function openDoor(door) {
+            if (!door.isOpening) {
+                door.isOpening = true;
+                door.currentFrame = 1;
+                door.frameTimer = 0;
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === 'z') {
+                const nearDoor = isNearDoor();
+                if (nearDoor) {
+                    openDoor(nearDoor);
+                }
+            }
+        });
+
+        function isNearDoor() {
+            return doors.find(door => {
+                return (
+                    madotsuki.x < door.x + door.width + 0 &&
+                    madotsuki.x + madotsuki.width > door.x - 0 &&
+                    madotsuki.y < door.y + door.height + 10 &&
+                    madotsuki.y + madotsuki.height > door.y - 0
+                );
+            });
+        }
+
+        function updateDoors(deltaTime) {
+            doors.forEach(door => {
+                if (door.isOpening) {
+                    door.frameTimer += deltaTime;
+                    if (door.frameTimer >= door.frameDelay) {
+                        door.currentFrame = Math.min(door.currentFrame + 1, 2);
+                        door.frameTimer = 0;
+                        if (door.currentFrame === 2) {
+                            door.isOpening = false;
+                            window.location.href = door.url;
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateCamera() {
+            camera.x = madotsuki.x - camera.width / 2 + madotsuki.width / 2;
+            camera.y = madotsuki.y - camera.height / 2 + madotsuki.height / 2;
+
+            camera.x = Math.max(0, Math.min(camera.x, background.width - camera.width));
+            camera.y = Math.max(0, Math.min(camera.y, background.height - camera.height));
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.drawImage(
+                background,
+                camera.x, camera.y, camera.width, camera.height,
+                0, 0, canvas.width, canvas.height
+            );
+
+            // draw door frames
+            doors.forEach(door => {
+                const doorFrameX = door.currentFrame * door.width;
+                ctx.drawImage(
+                    door.sprite,
+                    doorFrameX, 0, door.width, door.height,
+                    door.x - camera.x,
+                    door.y - camera.y,
+                    door.width, door.height
+                );
+            });
+
+            // draw madotsuki dir
+            let spriteX = madotsuki.frame * madotsuki.width;
+            let spriteY = {
+                'down': 0,
+                'up': 3,
+                'left': 1,
+                'right': 2
+            }[madotsuki.isWalking ? madotsuki.direction : madotsuki.lastDirection] * madotsuki.height;
+
+            ctx.drawImage(
+                sprites,
+                spriteX, spriteY, madotsuki.width, madotsuki.height,
+                madotsuki.x - camera.x, madotsuki.y - camera.y,
+                madotsuki.width, madotsuki.height
+            );
+        }
+
+        function gameLoop(timestamp) {
+            const deltaTime = timestamp - lastTimestamp;
+            lastTimestamp = timestamp;
+
+            updateMadotsuki(deltaTime);
+            updateDoors(deltaTime);
+            updateCamera();
+            draw();
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        let lastTimestamp = 0;
+        background.onload = () => {
+            requestAnimationFrame(gameLoop);
+        };
+
+    </script>
+</body>
+</html>
