@@ -31,7 +31,7 @@
             outline: solid;
             outline-width: 5px;
             outline-color: rgba(255, 255, 255, 0.181);
-            box-shadow: 0 0 240px rgba(52, 52, 52, 0.4);
+            box-shadow: 0 0 240px rgba(52, 52, 52, 1);
         }
 
         .crt {
@@ -47,12 +47,12 @@
             background-size: 100% 2px, 3px 100%;
             pointer-events: none;
         }
-/* 
+ 
         .fuzzy-overlay {
             position: absolute;
             inset: -50%;
             background-image: url('../images/noise.png');
-            opacity: 7%;
+            opacity: 10%;
             z-index: 0;
             pointer-events: none;
             animation: shift 0.2s linear infinite both;
@@ -66,10 +66,11 @@
             100% {
                 transform: translateX(-5%) translateY(-5%);
             }
-        } */
+        } 
     </style>
 </head>
 <body>
+    <div class="fuzzy-overlay"></div>
     <canvas id="gameCanvas" width="320" height="248"></canvas>
     <div class="crt"></div>
     <script>
