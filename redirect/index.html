@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Redirecting...</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		window.onload = function () {
+			const params = new URLSearchParams(window.location.search);
+			const targetUrl = params.get('url');
+
+			if (targetUrl) {
+				setTimeout(() => {
+					window.location.href = targetUrl;
+				}, 500);
+			} else {
+				document.body.innerHTML = "<h2>hey go away</h2>";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h2>redirecting gimme a sec</h2>
+</body>
+</html>
