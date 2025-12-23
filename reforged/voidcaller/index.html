@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VOIDCALLER</title>
+<link rel="icon" type="image/png" href="icon.png">
+
+<style>
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  overflow: hidden;
+  font-family: monospace;
+  color: #cfcfcf;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  background: rgba(0,0,0,0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  z-index: 10394;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+      height: 100%;
+      padding-top: 10px;
+      display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar {
+  position: absolute;
+  width: 250px;
+  height: 90%;
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.5),
+  rgba(255,255,255,0.15),
+      transparent
+    );  
+    animation: pulse 3s ease-in-out infinite;
+}
+
+
+
+@keyframes pulse {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 0.9; }
+  100% { opacity: 0.3; }
+}
+
+.pillar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    white,
+    transparent
+  );
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+model-viewer { /*mphh*/
+  width: 700px;
+  height: 700px;
+  z-index: 2;
+  filter:
+    drop-shadow(0 0 2px white)
+    drop-shadow(0 0 6px white)
+    drop-shadow(0 0 12px rgba(255,255,255,0.5));
+}
+
+.lore {
+  position: absolute;
+  width: 330px;
+  padding: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: rgba(0,0,0,0.7);
+  font-size: 13px;
+  line-height: 2.3;
+  letter-spacing: 1px;
+}
+
+.lore.left {
+  left: 40px;
+}
+
+.lore.right {
+    width: 290px;
+  right: 40px;
+display: block;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="top-bar"> <!--update-->
+  welcome.
+</div>
+
+<div class="scene">
+
+
+
+<div class="lore left">
+  It’s quite odd, isn’t it?<br><br>
+
+  No one can understand what it is.<br>
+  No one knows where it came from.<br>
+  No one believes that it’s like the rest.<br>
+  No one knows how they obtained it.<br><br>
+
+  It holds unbelievable power.<br>
+  The ability to hold us down to-<br>
+  the void at their will is unseen.<br><br>
+
+  Nobody believes anything about it,<br>
+  Nobody trusts anything about it,<br>
+  Nobody likes anything about it.<br>
+  Yet, nobody knows anything about it.
+</div>
+
+  <div class="pillar"></div>
+  <model-viewer
+    src="model.glb"
+    alt="3D model"
+    auto-rotate
+    auto-rotate-delay="0"
+    rotation-per-second="30deg"
+    disable-zoom
+    shadow-intensity="0"
+    exposure="0"
+    environment-image="neutral"
+    min-camera-orbit="0deg 90deg auto"
+    max-camera-orbit="360deg 90deg auto"
+  ></model-viewer>
+
+
+
+
+  <div class="lore right">
+  Nothing that can be offered-<br>
+  will give you those answers-<br>
+  that you so desperately seek for.<br><br>
+  Nothing will be earned.<br>
+  Nothing will be found.<br>
+  Yet, maybe nothing is all you need.<br><br>
+  Take this, and maybe that nothing-<br>
+  will be enough for something.
+<img
+  id="viewerdl"
+  src="zip.gif"
+  style="
+    width: 240px;
+    height: 240px;
+    margin-top: 20px;
+    object-fit: contain;
+    cursor: pointer;
+  "
+/>
+
+
+</div>
+
+
+</div>
+
+<script type="module"
+  src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+
+  const download = document.getElementById('viewerdl');
+
+  download.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.href = 'ANSWERS.zip';
+    link.download = 'ANSWERS.zip';
+    link.click(); //okman
+  });
+
+</script>
+
+</body>
+</html>
