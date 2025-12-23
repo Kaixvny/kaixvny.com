@@ -39,9 +39,9 @@ html, body {
 .scene {
   position: relative;
   width: 100%;
-      height: 100%;
-      padding-top: 10px;
-      display: flex;
+  height: 100%;
+  padding-top: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -56,13 +56,11 @@ html, body {
       transparent,
       rgba(255,255,255,0.15),
       rgba(255,255,255,0.5),
-  rgba(255,255,255,0.15),
+      rgba(255,255,255,0.15),
       transparent
     );  
     animation: pulse 3s ease-in-out infinite;
 }
-
-
 
 @keyframes pulse {
   0%   { opacity: 0.3; }
@@ -129,8 +127,6 @@ display: block;
 
 <div class="scene">
 
-
-
 <div class="lore left">
   It’s quite odd, isn’t it?<br><br>
 
@@ -164,9 +160,6 @@ display: block;
     max-camera-orbit="360deg 90deg auto"
   ></model-viewer>
 
-
-
-
   <div class="lore right">
   Nothing that can be offered-<br>
   will give you those answers-<br>
@@ -191,22 +184,19 @@ display: block;
 
 </div>
 
-
 </div>
 
-<script type="module"
-  src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-
+<script>
   const download = document.getElementById('viewerdl');
 
   download.addEventListener('click', () => {
     const link = document.createElement('a');
-    link.href = 'ANSWERS.zip';
+    link.href = 'ANSWERS.zip'; // H MY God it works nwo
     link.download = 'ANSWERS.zip';
-    link.click(); //okman
+    link.click();
   });
-
 </script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
 </body>
 </html>
