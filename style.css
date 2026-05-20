@@ -54,8 +54,8 @@ body { background-color: black; overflow: hidden;}
 }
 
 .iconsecret-container {
-    margin: 17px;
-    transform: translate(154px, 40px);
+    margin: 12px;
+    transform: translate(89px, 40px);
 }
 
 .icon, .iconrow2, .iconsecret, .settings {
@@ -64,7 +64,7 @@ body { background-color: black; overflow: hidden;}
     background-size: cover;
 }
 
-.icon-text, .iconrow2-text, .iconsecret-text, .iconparappa-text {
+.icon-text, .iconrow2-text, .iconsecret-text, .iconparappa-text, .iconboxgame-text {
     color: white;
     font-size: 18px;
     margin-top: 5px;
@@ -78,6 +78,7 @@ body { background-color: black; overflow: hidden;}
 .iconrow21 { background-image: url('images/trash.png'); }
 .iconsecret { background-image: url('images/lock.png'); }
 .iconparappa { background-image: url('images/parappa.png'); }
+.iconboxgame { background-image: url('images/boxgame.png'); }
 .settings {
     background-image: url('images/settings.png'); 
     position: absolute;

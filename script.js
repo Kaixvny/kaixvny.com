@@ -6,6 +6,10 @@ function openParappa() {
     window.location.href = "https://parappa.kaixvny.com/";
 }
 
+function openBox() {
+    window.location.href = "https://boxgame.kaixvny.com/";
+}
+
 document.addEventListener("click", function (event) {
     if (
         !event.target.classList.contains('icon') &&
@@ -178,7 +182,7 @@ async function checkPassword() {
         taskbar.style.filter = "grayscale(1)";
         start.style.filter = "grayscale(1)";
         icon1.style.filter = "grayscale(1)";
-        document.querySelectorAll("#\\32-1, #\\32, #\\33, #\\34, #\\35, #parappa, #secret").forEach(element => element.remove());
+        document.querySelectorAll("#\\32-1, #\\32, #\\33, #\\34, #\\35, #parappa, #secret, #boxgame").forEach(element => element.remove());
         icon1.style.backgroundImage = "url('images/console.png')";
         const iconContainer = document.getElementById("1");
         iconContainer.onclick = function () {
