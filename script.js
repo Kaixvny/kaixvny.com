@@ -7,7 +7,7 @@ function openParappa() {
 }
 
 function openBox() {
-    window.location.href = "https://boxgame.kaixvny.com/";
+    window.location.href = "https://www.kaixvny.com/boxgameshowdown";
 }
 
 document.addEventListener("click", function (event) {
