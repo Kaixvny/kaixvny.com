@@ -267,21 +267,26 @@ footer {
   }
 
   .innav {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 20px 40px;
+  }
+
+  .title {
+    grid-column: 1 / -1;
+    order: -1;
+    font-size: 20px;
   }
 
   .navleft,
   .navright {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: contents;
   }
 
-  .title {
-    order: -1;
-    font-size: 20px;
+  .navleft a,
+  .navright a {
+    justify-content: center;
   }
 
   #header {
